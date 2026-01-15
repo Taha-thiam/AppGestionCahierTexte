@@ -3,28 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\appgestioncahiertexte\\views\\parametre\\frmclasse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|solutionrelative:appgestioncahiertexte\\views\\parametre\\frmclasse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|c:\\users\\taha\\desktop\\l3\\c_sharp\\appgestioncahiertexte\\appgestioncahiertexte\\views\\parametre\\frmanneeacademique.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|solutionrelative:appgestioncahiertexte\\views\\parametre\\frmanneeacademique.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|c:\\users\\taha\\desktop\\l3\\c_sharp\\appgestioncahiertexte\\appgestioncahiertexte\\views\\parametre\\frmclasse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\appgestioncahiertexte\\views\\parametre\\frmanneeacademique.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|solutionrelative:appgestioncahiertexte\\views\\parametre\\frmanneeacademique.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\appgestioncahiertexte\\views\\parametre\\frmmatiere.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|solutionrelative:appgestioncahiertexte\\views\\parametre\\frmmatiere.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\appgestioncahiertexte\\views\\parametre\\frmclasse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|solutionrelative:appgestioncahiertexte\\views\\parametre\\frmclasse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\appgestioncahiertexte\\views\\parametre\\frmclasse.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|solutionrelative:appgestioncahiertexte\\views\\parametre\\frmclasse.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\appgestioncahiertexte\\views\\parametre\\frmmatiere.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|solutionrelative:appgestioncahiertexte\\views\\parametre\\frmmatiere.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\appgestioncahiertexte\\views\\parametre\\frmmatiere.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|solutionrelative:appgestioncahiertexte\\views\\parametre\\frmmatiere.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\appgestioncahiertexte\\views\\parametre\\frmclasse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|solutionrelative:appgestioncahiertexte\\views\\parametre\\frmclasse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\appgestioncahiertexte\\views\\parametre\\frmmatiere.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|solutionrelative:appgestioncahiertexte\\views\\parametre\\frmmatiere.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\appgestioncahiertexte\\views\\parametre\\frmanneeacademique.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|solutionrelative:appgestioncahiertexte\\views\\parametre\\frmanneeacademique.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\appgestioncahiertexte\\migrations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|solutionrelative:appgestioncahiertexte\\migrations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\appgestioncahiertexte\\views\\parametre\\frmclasse.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|solutionrelative:appgestioncahiertexte\\views\\parametre\\frmclasse.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\appgestioncahiertexte\\views\\parametre\\frmmatiere.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|solutionrelative:appgestioncahiertexte\\views\\parametre\\frmmatiere.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\appgestioncahiertexte\\models\\classe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -57,14 +73,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\appgestioncahiertexte\\models\\anneeacademique.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|solutionrelative:appgestioncahiertexte\\models\\anneeacademique.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\appgestioncahiertexte\\migrations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|solutionrelative:appgestioncahiertexte\\migrations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\appgestioncahiertexte\\views\\parametre\\frmanneeacademique.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|solutionrelative:appgestioncahiertexte\\views\\parametre\\frmanneeacademique.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{060A68DF-0AFB-4D04-BE5B-E0125F333EC9}|AppGestionCahierTexte\\AppGestionCahierTexte.csproj|C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\appgestioncahiertexte\\frmmdi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -106,48 +114,106 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmClasse.cs",
-              "DocumentMoniker": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Views\\Parametre\\frmClasse.cs",
-              "RelativeDocumentMoniker": "AppGestionCahierTexte\\Views\\Parametre\\frmClasse.cs",
-              "ToolTip": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Views\\Parametre\\frmClasse.cs",
-              "RelativeToolTip": "AppGestionCahierTexte\\Views\\Parametre\\frmClasse.cs",
-              "ViewState": "AgIAABIBAAAAAAAAAAAAABkBAAANAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "frmAnneeAcademique.cs",
+              "DocumentMoniker": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Views\\Parametre\\frmAnneeAcademique.cs",
+              "RelativeDocumentMoniker": "AppGestionCahierTexte\\Views\\Parametre\\frmAnneeAcademique.cs",
+              "ToolTip": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Views\\Parametre\\frmAnneeAcademique.cs",
+              "RelativeToolTip": "AppGestionCahierTexte\\Views\\Parametre\\frmAnneeAcademique.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAiwDEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-05T14:04:12.486Z",
+              "WhenOpened": "2026-01-15T16:23:04.509Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "frmMatiere.cs",
-              "DocumentMoniker": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Views\\Parametre\\frmMatiere.cs",
-              "RelativeDocumentMoniker": "AppGestionCahierTexte\\Views\\Parametre\\frmMatiere.cs",
-              "ToolTip": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Views\\Parametre\\frmMatiere.cs",
-              "RelativeToolTip": "AppGestionCahierTexte\\Views\\Parametre\\frmMatiere.cs",
-              "ViewState": "AgIAAAYBAAAAAAAAAAAiwBABAAAFAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "frmAnneeAcademique.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Views\\Parametre\\frmAnneeAcademique.cs",
+              "RelativeDocumentMoniker": "AppGestionCahierTexte\\Views\\Parametre\\frmAnneeAcademique.cs",
+              "ToolTip": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Views\\Parametre\\frmAnneeAcademique.cs [Design]",
+              "RelativeToolTip": "AppGestionCahierTexte\\Views\\Parametre\\frmAnneeAcademique.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-05T14:03:53.363Z"
+              "WhenOpened": "2026-01-05T15:09:27.551Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "frmClasse.cs [Design]",
               "DocumentMoniker": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Views\\Parametre\\frmClasse.cs",
               "RelativeDocumentMoniker": "AppGestionCahierTexte\\Views\\Parametre\\frmClasse.cs",
               "ToolTip": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Views\\Parametre\\frmClasse.cs [Design]",
               "RelativeToolTip": "AppGestionCahierTexte\\Views\\Parametre\\frmClasse.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-05T14:01:48.557Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2026-01-05T14:01:48.557Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "frmMatiere.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Views\\Parametre\\frmMatiere.cs",
+              "RelativeDocumentMoniker": "AppGestionCahierTexte\\Views\\Parametre\\frmMatiere.cs",
+              "ToolTip": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Views\\Parametre\\frmMatiere.cs [Design]",
+              "RelativeToolTip": "AppGestionCahierTexte\\Views\\Parametre\\frmMatiere.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T13:22:40.648Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmMatiere.cs",
+              "DocumentMoniker": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Views\\Parametre\\frmMatiere.cs",
+              "RelativeDocumentMoniker": "AppGestionCahierTexte\\Views\\Parametre\\frmMatiere.cs",
+              "ToolTip": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Views\\Parametre\\frmMatiere.cs",
+              "RelativeToolTip": "AppGestionCahierTexte\\Views\\Parametre\\frmMatiere.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T14:03:53.363Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "frmAnneeAcademique.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Views\\Parametre\\frmAnneeAcademique.Designer.cs",
+              "RelativeDocumentMoniker": "AppGestionCahierTexte\\Views\\Parametre\\frmAnneeAcademique.Designer.cs",
+              "ToolTip": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Views\\Parametre\\frmAnneeAcademique.Designer.cs",
+              "RelativeToolTip": "AppGestionCahierTexte\\Views\\Parametre\\frmAnneeAcademique.Designer.cs",
+              "ViewState": "AgIAAIsAAAAAAAAAAAD4v5YAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-15T16:23:14.179Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "frmClasse.cs",
+              "DocumentMoniker": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Views\\Parametre\\frmClasse.cs",
+              "RelativeDocumentMoniker": "AppGestionCahierTexte\\Views\\Parametre\\frmClasse.cs",
+              "ToolTip": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Views\\Parametre\\frmClasse.cs",
+              "RelativeToolTip": "AppGestionCahierTexte\\Views\\Parametre\\frmClasse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T14:04:12.486Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Configuration.cs",
+              "DocumentMoniker": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Migrations\\Configuration.cs",
+              "RelativeDocumentMoniker": "AppGestionCahierTexte\\Migrations\\Configuration.cs",
+              "ToolTip": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Migrations\\Configuration.cs",
+              "RelativeToolTip": "AppGestionCahierTexte\\Migrations\\Configuration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-22T15:34:57.213Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "frmMatiere.Designer.cs",
               "DocumentMoniker": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Views\\Parametre\\frmMatiere.Designer.cs",
               "RelativeDocumentMoniker": "AppGestionCahierTexte\\Views\\Parametre\\frmMatiere.Designer.cs",
@@ -159,18 +225,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "frmMatiere.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Views\\Parametre\\frmMatiere.cs",
-              "RelativeDocumentMoniker": "AppGestionCahierTexte\\Views\\Parametre\\frmMatiere.cs",
-              "ToolTip": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Views\\Parametre\\frmMatiere.cs [Design]",
-              "RelativeToolTip": "AppGestionCahierTexte\\Views\\Parametre\\frmMatiere.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-05T13:22:40.648Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "Utilisateur.cs",
               "DocumentMoniker": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Models\\Utilisateur.cs",
               "RelativeDocumentMoniker": "AppGestionCahierTexte\\Models\\Utilisateur.cs",
@@ -182,7 +237,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "frmClasse.Designer.cs",
               "DocumentMoniker": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Views\\Parametre\\frmClasse.Designer.cs",
               "RelativeDocumentMoniker": "AppGestionCahierTexte\\Views\\Parametre\\frmClasse.Designer.cs",
@@ -190,12 +245,11 @@
               "RelativeToolTip": "AppGestionCahierTexte\\Views\\Parametre\\frmClasse.Designer.cs",
               "ViewState": "AgIAAIAAAAAAAAAAAAD4v4oAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-05T14:04:20.467Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-05T14:04:20.467Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "Classe.cs",
               "DocumentMoniker": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Models\\Classe.cs",
               "RelativeDocumentMoniker": "AppGestionCahierTexte\\Models\\Classe.cs",
@@ -207,7 +261,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "Matiere.cs",
               "DocumentMoniker": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Models\\Matiere.cs",
               "RelativeDocumentMoniker": "AppGestionCahierTexte\\Models\\Matiere.cs",
@@ -219,7 +273,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "CahierTexte.cs",
               "DocumentMoniker": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Models\\CahierTexte.cs",
               "RelativeDocumentMoniker": "AppGestionCahierTexte\\Models\\CahierTexte.cs",
@@ -231,7 +285,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "DetailsSyllabus.cs",
               "DocumentMoniker": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Models\\DetailsSyllabus.cs",
               "RelativeDocumentMoniker": "AppGestionCahierTexte\\Models\\DetailsSyllabus.cs",
@@ -243,7 +297,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "Syllabus.cs",
               "DocumentMoniker": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Models\\Syllabus.cs",
               "RelativeDocumentMoniker": "AppGestionCahierTexte\\Models\\Syllabus.cs",
@@ -255,7 +309,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "ResponsableClasse.cs",
               "DocumentMoniker": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Models\\ResponsableClasse.cs",
               "RelativeDocumentMoniker": "AppGestionCahierTexte\\Models\\ResponsableClasse.cs",
@@ -267,7 +321,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "AnneeAcademique.cs",
               "DocumentMoniker": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Models\\AnneeAcademique.cs",
               "RelativeDocumentMoniker": "AppGestionCahierTexte\\Models\\AnneeAcademique.cs",
@@ -279,30 +333,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Configuration.cs",
-              "DocumentMoniker": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Migrations\\Configuration.cs",
-              "RelativeDocumentMoniker": "AppGestionCahierTexte\\Migrations\\Configuration.cs",
-              "ToolTip": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Migrations\\Configuration.cs",
-              "RelativeToolTip": "AppGestionCahierTexte\\Migrations\\Configuration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-22T15:34:57.213Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "frmAnneeAcademique.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Views\\Parametre\\frmAnneeAcademique.cs",
-              "RelativeDocumentMoniker": "AppGestionCahierTexte\\Views\\Parametre\\frmAnneeAcademique.cs",
-              "ToolTip": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Views\\Parametre\\frmAnneeAcademique.cs [Design]",
-              "RelativeToolTip": "AppGestionCahierTexte\\Views\\Parametre\\frmAnneeAcademique.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-05T15:09:27.551Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "frmMDI.cs [Design]",
               "DocumentMoniker": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\frmMDI.cs",
               "RelativeDocumentMoniker": "AppGestionCahierTexte\\frmMDI.cs",
@@ -313,7 +344,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Form1.cs",
               "RelativeDocumentMoniker": "AppGestionCahierTexte\\Form1.cs",
@@ -324,7 +355,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "BdCahierTexteContext.cs",
               "DocumentMoniker": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Models\\BdCahierTexteContext.cs",
               "RelativeDocumentMoniker": "AppGestionCahierTexte\\Models\\BdCahierTexteContext.cs",
@@ -336,7 +367,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "Professeur.cs",
               "DocumentMoniker": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Models\\Professeur.cs",
               "RelativeDocumentMoniker": "AppGestionCahierTexte\\Models\\Professeur.cs",
@@ -348,7 +379,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Form1.cs",
               "RelativeDocumentMoniker": "AppGestionCahierTexte\\Form1.cs",
@@ -360,7 +391,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 23,
               "Title": "Form1.Designer.cs",
               "DocumentMoniker": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Form1.Designer.cs",
               "RelativeDocumentMoniker": "AppGestionCahierTexte\\Form1.Designer.cs",
@@ -372,7 +403,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\Program.cs",
               "RelativeDocumentMoniker": "AppGestionCahierTexte\\Program.cs",
@@ -384,7 +415,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 25,
               "Title": "frmMDI.cs",
               "DocumentMoniker": "C:\\Users\\TAHA\\Desktop\\L3\\C_Sharp\\AppGestionCahierTexte\\AppGestionCahierTexte\\frmMDI.cs",
               "RelativeDocumentMoniker": "AppGestionCahierTexte\\frmMDI.cs",

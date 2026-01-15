@@ -37,6 +37,11 @@
             this.txtLibelle = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cbbAnneeAcademique = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtRAnnee = new System.Windows.Forms.TextBox();
+            this.txtRClasse = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DgClasse)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,6 +86,7 @@
             this.btnModifier.TabIndex = 9;
             this.btnModifier.Text = "&Modifier";
             this.btnModifier.UseVisualStyleBackColor = true;
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click_1);
             // 
             // btnAjouter
             // 
@@ -110,6 +116,7 @@
             this.txtLibelle.Name = "txtLibelle";
             this.txtLibelle.Size = new System.Drawing.Size(226, 35);
             this.txtLibelle.TabIndex = 11;
+            this.txtLibelle.TextChanged += new System.EventHandler(this.txtLibelle_TextChanged);
             // 
             // label2
             // 
@@ -130,12 +137,64 @@
             this.cbbAnneeAcademique.TabIndex = 14;
             this.cbbAnneeAcademique.Text = " ";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(696, 33);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(82, 29);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "Annee";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(333, 36);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(87, 29);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Classe";
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Location = new System.Drawing.Point(1043, 21);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(226, 44);
+            this.btnSearch.TabIndex = 18;
+            this.btnSearch.Text = "&Rechercher";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // txtRAnnee
+            // 
+            this.txtRAnnee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRAnnee.Location = new System.Drawing.Point(794, 30);
+            this.txtRAnnee.Name = "txtRAnnee";
+            this.txtRAnnee.Size = new System.Drawing.Size(159, 35);
+            this.txtRAnnee.TabIndex = 17;
+            // 
+            // txtRClasse
+            // 
+            this.txtRClasse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRClasse.Location = new System.Drawing.Point(436, 30);
+            this.txtRClasse.Name = "txtRClasse";
+            this.txtRClasse.Size = new System.Drawing.Size(172, 35);
+            this.txtRClasse.TabIndex = 16;
+            // 
             // frmClasse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1221, 687);
+            this.ClientSize = new System.Drawing.Size(1368, 687);
             this.ControlBox = false;
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.txtRAnnee);
+            this.Controls.Add(this.txtRClasse);
             this.Controls.Add(this.cbbAnneeAcademique);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -165,5 +224,10 @@
         private System.Windows.Forms.TextBox txtLibelle;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbbAnneeAcademique;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox txtRAnnee;
+        private System.Windows.Forms.TextBox txtRClasse;
     }
 }

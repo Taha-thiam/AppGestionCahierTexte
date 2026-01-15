@@ -45,10 +45,10 @@
             // DgMatiere
             // 
             this.DgMatiere.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgMatiere.Location = new System.Drawing.Point(266, 91);
+            this.DgMatiere.Location = new System.Drawing.Point(349, 62);
             this.DgMatiere.Name = "DgMatiere";
             this.DgMatiere.RowHeadersWidth = 62;
-            this.DgMatiere.Size = new System.Drawing.Size(892, 543);
+            this.DgMatiere.Size = new System.Drawing.Size(892, 594);
             this.DgMatiere.TabIndex = 8;
             // 
             // btnSelectionner
@@ -60,6 +60,7 @@
             this.btnSelectionner.TabIndex = 1;
             this.btnSelectionner.Text = "&Selectionner";
             this.btnSelectionner.UseVisualStyleBackColor = true;
+            this.btnSelectionner.Click += new System.EventHandler(this.btnSelectionner_Click);
             // 
             // btnAjouter
             // 
@@ -70,6 +71,7 @@
             this.btnAjouter.TabIndex = 5;
             this.btnAjouter.Text = "&Ajouter";
             this.btnAjouter.UseVisualStyleBackColor = true;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
             // btnModifier
             // 
@@ -80,6 +82,7 @@
             this.btnModifier.TabIndex = 6;
             this.btnModifier.Text = "&Modifier";
             this.btnModifier.UseVisualStyleBackColor = true;
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             // 
             // txtLibelle
             // 
@@ -88,6 +91,7 @@
             this.txtLibelle.Name = "txtLibelle";
             this.txtLibelle.Size = new System.Drawing.Size(226, 35);
             this.txtLibelle.TabIndex = 2;
+            this.txtLibelle.TextChanged += new System.EventHandler(this.txtLibelle_TextChanged);
             // 
             // txtVolumeHoraire
             // 
@@ -96,6 +100,7 @@
             this.txtVolumeHoraire.Name = "txtVolumeHoraire";
             this.txtVolumeHoraire.Size = new System.Drawing.Size(226, 35);
             this.txtVolumeHoraire.TabIndex = 3;
+            this.txtVolumeHoraire.TextChanged += new System.EventHandler(this.txtVolumeHoraire_TextChanged);
             // 
             // txtNiveau
             // 
@@ -104,6 +109,7 @@
             this.txtNiveau.Name = "txtNiveau";
             this.txtNiveau.Size = new System.Drawing.Size(226, 35);
             this.txtNiveau.TabIndex = 4;
+            this.txtNiveau.TextChanged += new System.EventHandler(this.txtNiveau_TextChanged);
             // 
             // btnSupprimer
             // 
@@ -114,6 +120,7 @@
             this.btnSupprimer.TabIndex = 7;
             this.btnSupprimer.Text = "&Supprimer";
             this.btnSupprimer.UseVisualStyleBackColor = true;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
             // label1
             // 
@@ -149,7 +156,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1180, 710);
+            this.ClientSize = new System.Drawing.Size(1364, 710);
             this.ControlBox = false;
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);

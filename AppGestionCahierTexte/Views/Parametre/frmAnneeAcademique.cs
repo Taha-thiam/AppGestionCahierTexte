@@ -14,6 +14,8 @@ namespace AppGestionCahierTexte.Views.Parametre
     public partial class frmAnneeAcademique : Form
     {
         BdCahierTexteContext db= new BdCahierTexteContext();
+        private int? _selectedAnneAcademiqueId = null;
+
         private void Effacer()
         {
             txtLibelle.Text = string.Empty;
@@ -73,6 +75,27 @@ namespace AppGestionCahierTexte.Views.Parametre
         {
             txtLibelle.Text = DgAnneAcademique.CurrentRow.Cells[1].Value.ToString();
             txtAnneAcademique.Text = DgAnneAcademique.CurrentRow.Cells[2].Value.ToString();
+
+            if (DgAnneAcademique.SelectedRows.Count > 0)
+            {
+                // Récupérer l'ID de la ligne sélectionnée
+                _selectedAnneAcademiqueId = Convert.ToInt32(DgAnneAcademique.SelectedRows[0].Cells["idAnneeAcademique"].Value);
+
+                // Charger les données dans les champs
+                var AnneeAcca = db.AnneeAcademiques.Find(_selectedAnneAcademiqueId);
+
+                if (AnneeAcca != null)
+                {
+                    txtLibelle.Text = AnneeAcca.LibelleAnneeAcademique;
+                    txtAnneAcademique.Text = AnneeAcca.ValueAnneeAcademique.ToString();
+
+                    // Activer les boutons Modifier et Supprimer
+                    btnModifier.Enabled = true;
+                    btnSupprimer.Enabled = true;
+                    btnAjouter.Enabled = false;
+                }
+            }
+
         }
     }
 }

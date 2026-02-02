@@ -18,6 +18,7 @@ namespace AppGestionCahierTexte
         {
             InitializeComponent();
         }
+        public string profil;
         private void fermer()
         {
             Form[] charr = this.MdiChildren;
@@ -73,6 +74,11 @@ namespace AppGestionCahierTexte
             this.Width = myComputer.Screen.Bounds.Width;
             this.Height = myComputer.Screen.Bounds.Height;
             this.Location = new Point(0, 0);
+
+            //if (profil != "Admin")
+            //{
+            //    securitéToolStripMenuItem.Visible = false;
+            //}
         }
 
         private void syllabusToolStripMenuItem_Click(object sender, EventArgs e)

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.txtIdentifiant = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textIdentifiant = new System.Windows.Forms.TextBox();
+            this.textMotDePasse = new System.Windows.Forms.TextBox();
             this.txtMotDePasse = new System.Windows.Forms.Label();
             this.btnSeConnecter = new System.Windows.Forms.Button();
             this.btnQuitter = new System.Windows.Forms.Button();
@@ -46,20 +46,20 @@
             this.txtIdentifiant.TabIndex = 0;
             this.txtIdentifiant.Text = "Identifiant";
             // 
-            // textBox1
+            // textIdentifiant
             // 
-            this.textBox1.Location = new System.Drawing.Point(197, 120);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(604, 26);
-            this.textBox1.TabIndex = 1;
+            this.textIdentifiant.Location = new System.Drawing.Point(197, 120);
+            this.textIdentifiant.Name = "textIdentifiant";
+            this.textIdentifiant.Size = new System.Drawing.Size(604, 26);
+            this.textIdentifiant.TabIndex = 1;
             // 
-            // textBox2
+            // textMotDePasse
             // 
-            this.textBox2.Location = new System.Drawing.Point(197, 235);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(604, 26);
-            this.textBox2.TabIndex = 2;
-            this.textBox2.UseSystemPasswordChar = true;
+            this.textMotDePasse.Location = new System.Drawing.Point(197, 235);
+            this.textMotDePasse.Name = "textMotDePasse";
+            this.textMotDePasse.Size = new System.Drawing.Size(604, 26);
+            this.textMotDePasse.TabIndex = 2;
+            this.textMotDePasse.UseSystemPasswordChar = true;
             // 
             // txtMotDePasse
             // 
@@ -101,9 +101,9 @@
             this.ControlBox = false;
             this.Controls.Add(this.btnQuitter);
             this.Controls.Add(this.btnSeConnecter);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textMotDePasse);
             this.Controls.Add(this.txtMotDePasse);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textIdentifiant);
             this.Controls.Add(this.txtIdentifiant);
             this.Name = "frmConnexion";
             this.Text = "Gestion cahier de Texte";
@@ -115,8 +115,8 @@
         #endregion
 
         private System.Windows.Forms.Label txtIdentifiant;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textIdentifiant;
+        private System.Windows.Forms.TextBox textMotDePasse;
         private System.Windows.Forms.Label txtMotDePasse;
         private System.Windows.Forms.Button btnSeConnecter;
         private System.Windows.Forms.Button btnQuitter;

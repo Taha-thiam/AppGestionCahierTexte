@@ -139,6 +139,7 @@
     <Compile Include="Models\Utilisateur.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shared\Crypto.cs" />
     <Compile Include="Views\Parametre\frmAnneeAcademique.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +157,18 @@
     </Compile>
     <Compile Include="Views\Parametre\frmMatiere.Designer.cs">
       <DependentUpon>frmMatiere.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Parametre\frmResponsableClasse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Parametre\frmResponsableClasse.Designer.cs">
+      <DependentUpon>frmResponsableClasse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Parametre\frmSyllabus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Parametre\frmSyllabus.Designer.cs">
+      <DependentUpon>frmSyllabus.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -183,6 +196,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Parametre\frmMatiere.resx">
       <DependentUpon>frmMatiere.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Parametre\frmResponsableClasse.resx">
+      <DependentUpon>frmResponsableClasse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Parametre\frmSyllabus.resx">
+      <DependentUpon>frmSyllabus.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

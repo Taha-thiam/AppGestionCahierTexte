@@ -36,6 +36,9 @@
             this.matiereToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.classeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.anneeAcademiqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.syllabusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.securitéToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.responsableClasseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,7 +48,8 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.actionToolStripMenuItem,
-            this.parametreToolStripMenuItem});
+            this.parametreToolStripMenuItem,
+            this.securitéToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1206, 33);
@@ -80,7 +84,8 @@
             this.parametreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.matiereToolStripMenuItem,
             this.classeToolStripMenuItem,
-            this.anneeAcademiqueToolStripMenuItem});
+            this.anneeAcademiqueToolStripMenuItem,
+            this.syllabusToolStripMenuItem});
             this.parametreToolStripMenuItem.Name = "parametreToolStripMenuItem";
             this.parametreToolStripMenuItem.Size = new System.Drawing.Size(107, 29);
             this.parametreToolStripMenuItem.Text = "&Parametre";
@@ -88,23 +93,45 @@
             // matiereToolStripMenuItem
             // 
             this.matiereToolStripMenuItem.Name = "matiereToolStripMenuItem";
-            this.matiereToolStripMenuItem.Size = new System.Drawing.Size(265, 34);
+            this.matiereToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.matiereToolStripMenuItem.Text = "&Matiere";
             this.matiereToolStripMenuItem.Click += new System.EventHandler(this.matiereToolStripMenuItem_Click);
             // 
             // classeToolStripMenuItem
             // 
             this.classeToolStripMenuItem.Name = "classeToolStripMenuItem";
-            this.classeToolStripMenuItem.Size = new System.Drawing.Size(265, 34);
+            this.classeToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.classeToolStripMenuItem.Text = "&Classe";
             this.classeToolStripMenuItem.Click += new System.EventHandler(this.classeToolStripMenuItem_Click);
             // 
             // anneeAcademiqueToolStripMenuItem
             // 
             this.anneeAcademiqueToolStripMenuItem.Name = "anneeAcademiqueToolStripMenuItem";
-            this.anneeAcademiqueToolStripMenuItem.Size = new System.Drawing.Size(265, 34);
+            this.anneeAcademiqueToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.anneeAcademiqueToolStripMenuItem.Text = "&Annee academique";
             this.anneeAcademiqueToolStripMenuItem.Click += new System.EventHandler(this.anneeAcademiqueToolStripMenuItem_Click);
+            // 
+            // syllabusToolStripMenuItem
+            // 
+            this.syllabusToolStripMenuItem.Name = "syllabusToolStripMenuItem";
+            this.syllabusToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.syllabusToolStripMenuItem.Text = "&Syllabus";
+            this.syllabusToolStripMenuItem.Click += new System.EventHandler(this.syllabusToolStripMenuItem_Click);
+            // 
+            // securitéToolStripMenuItem
+            // 
+            this.securitéToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.responsableClasseToolStripMenuItem1});
+            this.securitéToolStripMenuItem.Name = "securitéToolStripMenuItem";
+            this.securitéToolStripMenuItem.Size = new System.Drawing.Size(90, 29);
+            this.securitéToolStripMenuItem.Text = "&Securité";
+            // 
+            // responsableClasseToolStripMenuItem1
+            // 
+            this.responsableClasseToolStripMenuItem1.Name = "responsableClasseToolStripMenuItem1";
+            this.responsableClasseToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
+            this.responsableClasseToolStripMenuItem1.Text = "Responsable Classe";
+            this.responsableClasseToolStripMenuItem1.Click += new System.EventHandler(this.responsableClasseToolStripMenuItem1_Click);
             // 
             // frmMDI
             // 
@@ -137,5 +164,8 @@
         private System.Windows.Forms.ToolStripMenuItem matiereToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem classeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem anneeAcademiqueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem syllabusToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem securitéToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem responsableClasseToolStripMenuItem1;
     }
 }

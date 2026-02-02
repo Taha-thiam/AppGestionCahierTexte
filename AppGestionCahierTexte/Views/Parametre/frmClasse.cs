@@ -333,6 +333,7 @@ namespace AppGestionCahierTexte.Views.Parametre
             DgClasse.DataSource = liste;
         }
 
+      
     }
 
 }

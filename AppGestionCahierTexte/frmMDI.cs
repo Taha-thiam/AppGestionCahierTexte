@@ -75,6 +75,31 @@ namespace AppGestionCahierTexte
             this.Location = new Point(0, 0);
         }
 
-       
+        private void syllabusToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fermer();
+            frmSyllabus f = new frmSyllabus();
+            f.MdiParent = this;
+            f.Show();
+            f.WindowState = FormWindowState.Maximized;
+        }
+
+        private void responsableClasseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fermer();
+            frmResponsableClasse f = new frmResponsableClasse();
+            f.MdiParent = this;
+            f.Show();
+            f.WindowState = FormWindowState.Maximized;
+        }
+
+        private void responsableClasseToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            fermer();
+            frmResponsableClasse f = new frmResponsableClasse();
+            f.MdiParent = this;
+            f.Show();
+            f.WindowState = FormWindowState.Maximized;
+        }
     }
 }

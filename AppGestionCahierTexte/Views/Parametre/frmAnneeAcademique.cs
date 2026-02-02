@@ -97,5 +97,7 @@ namespace AppGestionCahierTexte.Views.Parametre
             }
 
         }
+
+      
     }
 }

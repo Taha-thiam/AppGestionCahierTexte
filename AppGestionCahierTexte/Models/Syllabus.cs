@@ -15,7 +15,7 @@ namespace AppGestionCahierTexte.Models
         public string LibelleSyllabus { get; set; }
         [Required, MaxLength(500)]
         public string DescriptionSyllabus { get; set; }
-        public int? VolumeHoraireSyllabus { get; set; }
+        public int? VolumeHoraireSyllabus { get; set; } 
         [Required, MaxLength(20)]
         public String NiveauSyllabus { get; set; }
 

@@ -1,3 +1,6 @@
 <Solution>
   <Project Path="AppGestionCahierTexte/AppGestionCahierTexte.csproj" Id="060a68df-0afb-4d04-be5b-e0125f333ec9" />
+  <Project Path="SetupCahierDeTexte/SetupCahierDeTexte.vdproj" Type="Installer">
+    <Build />
+  </Project>
 </Solution>

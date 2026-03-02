@@ -49,6 +49,6 @@ C:\Users\TAHA\Desktop\L3\C_Sharp\AppGestionCahierTexte\AppGestionCahierTexte\bin
 C:\Users\TAHA\Desktop\L3\C_Sharp\AppGestionCahierTexte\AppGestionCahierTexte\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\TAHA\Desktop\L3\C_Sharp\AppGestionCahierTexte\AppGestionCahierTexte\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\TAHA\Desktop\L3\C_Sharp\AppGestionCahierTexte\AppGestionCahierTexte\obj\Debug\AppGesti.8529B6D3.Up2Date
-C:\Users\TAHA\Desktop\L3\C_Sharp\AppGestionCahierTexte\AppGestionCahierTexte\obj\Debug\AppGestionCahierTexte.Migrations.test.resources
 C:\Users\TAHA\Desktop\L3\C_Sharp\AppGestionCahierTexte\AppGestionCahierTexte\obj\Debug\AppGestionCahierTexte.Views.Parametre.frmSyllabus.resources
 C:\Users\TAHA\Desktop\L3\C_Sharp\AppGestionCahierTexte\AppGestionCahierTexte\obj\Debug\AppGestionCahierTexte.Views.Parametre.frmResponsableClasse.resources
+C:\Users\TAHA\Desktop\L3\C_Sharp\AppGestionCahierTexte\AppGestionCahierTexte\obj\Debug\AppGestionCahierTexte.Views.Parametre.frmDetailSyllabus.resources

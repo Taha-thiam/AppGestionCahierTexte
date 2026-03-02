@@ -39,6 +39,7 @@
             this.syllabusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.securitéToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.responsableClasseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.detailSyllabusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,7 +86,8 @@
             this.matiereToolStripMenuItem,
             this.classeToolStripMenuItem,
             this.anneeAcademiqueToolStripMenuItem,
-            this.syllabusToolStripMenuItem});
+            this.syllabusToolStripMenuItem,
+            this.detailSyllabusToolStripMenuItem});
             this.parametreToolStripMenuItem.Name = "parametreToolStripMenuItem";
             this.parametreToolStripMenuItem.Size = new System.Drawing.Size(107, 29);
             this.parametreToolStripMenuItem.Text = "&Parametre";
@@ -133,6 +135,13 @@
             this.responsableClasseToolStripMenuItem1.Text = "Responsable Classe";
             this.responsableClasseToolStripMenuItem1.Click += new System.EventHandler(this.responsableClasseToolStripMenuItem1_Click);
             // 
+            // detailSyllabusToolStripMenuItem
+            // 
+            this.detailSyllabusToolStripMenuItem.Name = "detailSyllabusToolStripMenuItem";
+            this.detailSyllabusToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.detailSyllabusToolStripMenuItem.Text = "&Detail Syllabus";
+            this.detailSyllabusToolStripMenuItem.Click += new System.EventHandler(this.detailSyllabusToolStripMenuItem_Click);
+            // 
             // frmMDI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -167,5 +176,6 @@
         private System.Windows.Forms.ToolStripMenuItem syllabusToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem securitéToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem responsableClasseToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem detailSyllabusToolStripMenuItem;
     }
 }

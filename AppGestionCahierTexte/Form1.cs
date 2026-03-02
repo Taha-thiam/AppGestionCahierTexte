@@ -1,4 +1,5 @@
 ﻿using AppGestionCahierTexte.Models;
+using AppGestionCahierTexte.Shared;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,43 +28,52 @@ namespace AppGestionCahierTexte
         private void btnSeConnecter_Click(object sender, EventArgs e)
         {
 
-            BdCahierTexteContext db = new BdCahierTexteContext();
-            var leUser = db.Utilisateurs.Where(u => u.Identifiant == textIdentifiant.Text).FirstOrDefault();
-            if (leUser == null)
-            {
-                MessageBox.Show("Identifiant ou mot de passe incorrect");
-            }
-            else
-            { 
-                using (MD5 md5Hash = MD5.Create())
-                {
-                    bool isValid = Shared.Crypto.VerifyMd5Hash(md5Hash, textMotDePasse.Text, leUser.MotDePasse);
-                    if (!isValid)
-                    {
-                        MessageBox.Show("Identifiant ou mot de passe incorrect");
-                        return;
-                    }
-                    else
-                    {
-                        string profil = "";
-                        if (db.ResponsableClasses.Any(r => r.IdUtilisateur == leUser.IdUtilisateur))
-                        {   
-                            profil = "ResponsableClasse";
-                        }
+            //BdCahierTexteContext db = new BdCahierTexteContext();
+            //var leUser = db.Utilisateurs.Where(u => u.Identifiant == textIdentifiant.Text).FirstOrDefault();
+            //if (leUser == null)
+            //{
+            //    MessageBox.Show("Identifiant ou mot de passe incorrect");
+            //}
+            //else
+            //{
+            //    using (MD5 md5Hash = MD5.Create())
+            //    {
+            //        bool isValid = Shared.Crypto.VerifyMd5Hash(md5Hash, textMotDePasse.Text, leUser.MotDePasse);
+            //        if (!isValid)
+            //        {
+            //            MessageBox.Show("Identifiant ou mot de passe incorrect");
+            //            return;
+            //        }
+            //        else
+            //        {
+            //            string profil = "";
+            //            if (db.ResponsableClasses.Any(r => r.IdUtilisateur == leUser.IdUtilisateur))
+            //            {
+            //                profil = "ResponsableClasse";
+            //            }
 
                         frmMDI f = new frmMDI();
-                        f.profil = profil;
+                        //f.profil = profil;
                         f.Show();
                         this.Hide();
+                        //        }
+
+
+                        //}
+
+
+                        //}
                     }
 
-
-                }
-
-
-            }
+         private void frmConnexion_Load(object sender, EventArgs e)
+        {
+            Logger.WriteLogSystem("Lancement de l'application", "Info");
+            Logger.WriteFileError("Test de message d'erreur" + Environment.NewLine);
         }
 
-       
+
+                //}
+                //}
+                //}
     }
 }

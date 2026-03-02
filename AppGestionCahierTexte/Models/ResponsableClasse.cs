@@ -10,7 +10,7 @@ namespace AppGestionCahierTexte.Models
 {
     public class ResponsableClasse: Utilisateur
     {
-        [Required, MaxLength(10)]
+        [Required, MaxLength(10)]   
         public String MatriculeResponsable { get; set; }
     } 
 }

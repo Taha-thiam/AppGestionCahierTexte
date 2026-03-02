@@ -23,6 +23,7 @@ namespace AppGestionCahierTexte.Models
         public DbSet<CahierTexte> CahierTextes { get; set; }
         public DbSet<Syllabus> Syllabuses { get; set; }
         public DbSet<DetailsSyllabus> DetailsSyllabuses { get; set; }
+        public DbSet<ChefDepartement> ChefDepartements { get; set; }
 
     }
 }

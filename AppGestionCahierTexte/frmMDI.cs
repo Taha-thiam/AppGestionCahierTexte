@@ -107,5 +107,15 @@ namespace AppGestionCahierTexte
             f.Show();
             f.WindowState = FormWindowState.Maximized;
         }
+
+        private void detailSyllabusToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fermer();
+            frmDetailSyllabus f = new frmDetailSyllabus();
+            f.MdiParent = this;
+            f.Show();
+            f.WindowState = FormWindowState.Maximized;
+
+        }
     }
 }

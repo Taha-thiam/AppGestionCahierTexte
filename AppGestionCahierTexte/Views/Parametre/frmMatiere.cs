@@ -13,8 +13,8 @@ namespace AppGestionCahierTexte.Views.Parametre
 {
     public partial class frmMatiere : Form
     {
-        BdCahierTexteContext db = new BdCahierTexteContext();
-        private int? _selectedMatiereId = null;
+            BdCahierTexteContext db = new BdCahierTexteContext();
+            private int? _selectedMatiereId = null;
 
         private void Effacer()
         {

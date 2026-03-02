@@ -1,16 +1,15 @@
 ﻿using AppGestionCahierTexte.Models;
+using AppGestionCahierTexte.Shared;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using System.Data.Entity; // Pour Entity Framework 6
-// OU
 
 namespace AppGestionCahierTexte.Views.Parametre
 {
@@ -23,7 +22,6 @@ namespace AppGestionCahierTexte.Views.Parametre
         {
             txtLibelle.Text = string.Empty;
 
-            // Charger les années académiques
             var anneesAcademiques = db.AnneeAcademiques.ToList();
 
             var listeAvecDefaut = new List<AnneeAcademique>();
@@ -39,7 +37,6 @@ namespace AppGestionCahierTexte.Views.Parametre
             cbbAnneeAcademique.ValueMember = "IdAnneeAcademique";
             cbbAnneeAcademique.SelectedIndex = 0;
 
-            // ✅ Charger avec Include pour inclure la relation
             DgClasse.DataSource = db.Classes
                 .Select(c => new
                 {
@@ -57,6 +54,7 @@ namespace AppGestionCahierTexte.Views.Parametre
             btnModifier.Enabled = false;
             btnSupprimer.Enabled = false;
         }
+
         public frmClasse()
         {
             InitializeComponent();
@@ -71,7 +69,6 @@ namespace AppGestionCahierTexte.Views.Parametre
         {
             try
             {
-                // Validation des champs
                 if (string.IsNullOrWhiteSpace(txtLibelle.Text))
                 {
                     MessageBox.Show("Veuillez saisir le libellé de la classe.",
@@ -84,6 +81,7 @@ namespace AppGestionCahierTexte.Views.Parametre
                 {
                     MessageBox.Show("Le libellé ne peut pas dépasser 10 caractères.",
                         "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Logger.WriteFileError("Validation - Le libellé ne peut pas dépasser 10 caractères.");
                     txtLibelle.Focus();
                     return;
                 }
@@ -97,7 +95,6 @@ namespace AppGestionCahierTexte.Views.Parametre
                     return;
                 }
 
-                // Vérifier si la classe existe déjà pour cette année
                 int idAnnee = int.Parse(cbbAnneeAcademique.SelectedValue.ToString());
                 bool classeExiste = db.Classes.Any(classe =>
                     classe.LibelleClasse.ToLower() == txtLibelle.Text.Trim().ToLower() &&
@@ -110,7 +107,6 @@ namespace AppGestionCahierTexte.Views.Parametre
                     return;
                 }
 
-                // Créer la nouvelle classe
                 Classe c = new Classe();
                 c.LibelleClasse = txtLibelle.Text.Trim();
                 c.IdAnneeAcademique = idAnnee;
@@ -125,6 +121,7 @@ namespace AppGestionCahierTexte.Views.Parametre
             }
             catch (Exception ex)
             {
+                Logger.WriteFileError($"btnAjouter_Click : {ex.Message}");
                 MessageBox.Show($"Erreur lors de l'ajout: {ex.Message}",
                     "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -136,10 +133,8 @@ namespace AppGestionCahierTexte.Views.Parametre
             {
                 if (DgClasse.SelectedRows.Count > 0)
                 {
-                    // Récupérer l'ID de la classe sélectionnée
                     _selectedClasseId = Convert.ToInt32(DgClasse.SelectedRows[0].Cells["IdClasse"].Value);
 
-                    // Charger les données dans les champs
                     var classe = db.Classes.Find(_selectedClasseId);
 
                     if (classe != null)
@@ -147,7 +142,6 @@ namespace AppGestionCahierTexte.Views.Parametre
                         txtLibelle.Text = classe.LibelleClasse;
                         cbbAnneeAcademique.SelectedValue = classe.IdAnneeAcademique;
 
-                        // Activer les boutons Modifier et Supprimer
                         btnModifier.Enabled = true;
                         btnSupprimer.Enabled = true;
                         btnAjouter.Enabled = false;
@@ -161,6 +155,7 @@ namespace AppGestionCahierTexte.Views.Parametre
             }
             catch (Exception ex)
             {
+                Logger.WriteFileError($"btnSelectionner_Click : {ex.Message}");
                 MessageBox.Show($"Erreur lors de la sélection: {ex.Message}",
                     "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -177,7 +172,6 @@ namespace AppGestionCahierTexte.Views.Parametre
                     return;
                 }
 
-                // Validation des champs
                 if (string.IsNullOrWhiteSpace(txtLibelle.Text))
                 {
                     MessageBox.Show("Veuillez saisir le libellé de la classe.",
@@ -190,6 +184,7 @@ namespace AppGestionCahierTexte.Views.Parametre
                 {
                     MessageBox.Show("Le libellé ne peut pas dépasser 10 caractères.",
                         "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Logger.WriteFileError("btnModifier_Click - Validation : Le libellé ne peut pas dépasser 10 caractères.");
                     txtLibelle.Focus();
                     return;
                 }
@@ -203,7 +198,6 @@ namespace AppGestionCahierTexte.Views.Parametre
                     return;
                 }
 
-                // Vérifier si une autre classe porte le même nom pour cette année
                 int idAnnee = int.Parse(cbbAnneeAcademique.SelectedValue.ToString());
                 bool classeExiste = db.Classes.Any(classe =>
                     classe.LibelleClasse.ToLower() == txtLibelle.Text.Trim().ToLower() &&
@@ -217,7 +211,6 @@ namespace AppGestionCahierTexte.Views.Parametre
                     return;
                 }
 
-                // Modifier la classe
                 var c = db.Classes.Find(_selectedClasseId);
 
                 if (c != null)
@@ -235,6 +228,7 @@ namespace AppGestionCahierTexte.Views.Parametre
             }
             catch (Exception ex)
             {
+                Logger.WriteFileError($"btnModifier_Click : {ex.Message}");
                 MessageBox.Show($"Erreur lors de la modification: {ex.Message}",
                     "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -242,7 +236,6 @@ namespace AppGestionCahierTexte.Views.Parametre
 
         private void btnModifier_Click_1(object sender, EventArgs e)
         {
-            // Appeler la même méthode que btnModifier_Click
             btnModifier_Click(sender, e);
         }
 
@@ -257,7 +250,6 @@ namespace AppGestionCahierTexte.Views.Parametre
                     return;
                 }
 
-                // Demander confirmation
                 DialogResult result = MessageBox.Show(
                     "Êtes-vous sûr de vouloir supprimer cette classe ?\n\nAttention : Cette action supprimera également toutes les données associées à cette classe.",
                     "Confirmation de suppression",
@@ -282,6 +274,7 @@ namespace AppGestionCahierTexte.Views.Parametre
             }
             catch (Exception ex)
             {
+                Logger.WriteFileError($"btnSupprimer_Click : {ex.Message}");
                 MessageBox.Show($"Erreur lors de la suppression: {ex.Message}\n\nCette classe est peut-être utilisée dans d'autres tables.",
                     "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -289,7 +282,6 @@ namespace AppGestionCahierTexte.Views.Parametre
 
         private void txtLibelle_TextChanged(object sender, EventArgs e)
         {
-            // Limiter à 10 caractères (contrainte du modèle)
             if (txtLibelle.Text.Length > 10)
             {
                 txtLibelle.Text = txtLibelle.Text.Substring(0, 10);
@@ -297,43 +289,44 @@ namespace AppGestionCahierTexte.Views.Parametre
             }
         }
 
-
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            var query = db.Classes.Include(c => c.AnneeAcademique).AsQueryable();
-
-            // Filtrer par année académique
-            if (!string.IsNullOrEmpty(txtRAnnee.Text))
+            try
             {
-                string anneeRecherche = txtRAnnee.Text.ToUpper();
-                query = query.Where(c =>
-                    c.AnneeAcademique.ValueAnneeAcademique.ToString().ToUpper().Contains(anneeRecherche)
-                );
+                var query = db.Classes.Include(c => c.AnneeAcademique).AsQueryable();
+
+                if (!string.IsNullOrEmpty(txtRAnnee.Text))
+                {
+                    string anneeRecherche = txtRAnnee.Text.ToUpper();
+                    query = query.Where(c =>
+                        c.AnneeAcademique.ValueAnneeAcademique.ToString().ToUpper().Contains(anneeRecherche)
+                    );
+                }
+
+                if (!string.IsNullOrEmpty(txtRClasse.Text))
+                {
+                    string classeRecherche = txtRClasse.Text.ToUpper();
+                    query = query.Where(c =>
+                        c.LibelleClasse.ToUpper().Contains(classeRecherche)
+                    );
+                }
+
+                var liste = query.Select(c => new
+                {
+                    c.IdClasse,
+                    c.LibelleClasse,
+                    c.IdAnneeAcademique,
+                    AnneeAcademique = c.AnneeAcademique.LibelleAnneeAcademique
+                }).ToList();
+
+                DgClasse.DataSource = liste;
             }
-
-            // Filtrer par classe
-            if (!string.IsNullOrEmpty(txtRClasse.Text))
+            catch (Exception ex)
             {
-                string classeRecherche = txtRClasse.Text.ToUpper();
-                query = query.Where(c =>
-                    c.LibelleClasse.ToUpper().Contains(classeRecherche)
-                );
+                Logger.WriteFileError($"btnSearch_Click : {ex.Message}");
+                MessageBox.Show($"Erreur lors de la recherche: {ex.Message}",
+                    "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            // Correction : il manquait la récupération de la liste
-            var liste = query.Select(c => new
-            {
-                c.IdClasse,
-                c.LibelleClasse,
-                c.IdAnneeAcademique,
-                AnneeAcademique = c.AnneeAcademique.LibelleAnneeAcademique
-            }).ToList();
-
-            DgClasse.DataSource = liste;
         }
-
-      
     }
-
 }

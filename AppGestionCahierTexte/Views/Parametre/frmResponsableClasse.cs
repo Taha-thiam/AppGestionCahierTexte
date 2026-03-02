@@ -21,7 +21,7 @@ namespace AppGestionCahierTexte.Views.Parametre
             InitializeComponent();
         }
 
-        BdCahierTexteContext db = new BdCahierTexteContext();
+            BdCahierTexteContext db = new BdCahierTexteContext();
         private int? _selectedResponsableClasseId = null;
 
 
@@ -57,15 +57,20 @@ namespace AppGestionCahierTexte.Views.Parametre
             txtTelephone.Text = string.Empty;
             txtIdentifiant.Text = string.Empty;
             txtMatricule.Text = string.Empty;
+
             DgResponsableClasse.DataSource = db.ResponsableClasses.ToList();
+
+            // ✅ Cacher la colonne MotDePasse
+            if (DgResponsableClasse.Columns["MotDePasse"] != null)
+                DgResponsableClasse.Columns["MotDePasse"].Visible = false;
+
             txtNom.Focus();
 
-            // Réinitialiser l'état des boutons
             btnAjouter.Enabled = true;
             btnModifier.Enabled = false;
             btnSupprimer.Enabled = false;
-
         }
+
 
         private void frmResponsableClasse_Load(object sender, EventArgs e)
         {

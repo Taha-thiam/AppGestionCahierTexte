@@ -2,287 +2,512 @@
 {
     partial class frmResponsableClasse
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
+            if (disposing && (components != null)) components.Dispose();
             base.Dispose(disposing);
         }
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.Label();
-            this.btnSupprimer = new System.Windows.Forms.Button();
-            this.txtAdresse = new System.Windows.Forms.TextBox();
-            this.txtPrenom = new System.Windows.Forms.TextBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.pnlMain = new System.Windows.Forms.Panel();
+            this.pnlGrid = new System.Windows.Forms.Panel();
+            this.DgResponsableClasse = new System.Windows.Forms.DataGridView();
+            this.lblCount = new System.Windows.Forms.Label();
+            this.lblGridTitle = new System.Windows.Forms.Label();
+            this.pnlCard = new System.Windows.Forms.Panel();
+            this.lblCardTitle = new System.Windows.Forms.Label();
+            this.lblNom = new System.Windows.Forms.Label();
             this.txtNom = new System.Windows.Forms.TextBox();
-            this.btnModifier = new System.Windows.Forms.Button();
+            this.lblPrenom = new System.Windows.Forms.Label();
+            this.txtPrenom = new System.Windows.Forms.TextBox();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.lblTelephone = new System.Windows.Forms.Label();
+            this.txtTelephone = new System.Windows.Forms.TextBox();
+            this.lblAdresse = new System.Windows.Forms.Label();
+            this.txtAdresse = new System.Windows.Forms.TextBox();
+            this.lblIdentifiant = new System.Windows.Forms.Label();
+            this.txtIdentifiant = new System.Windows.Forms.TextBox();
+            this.lblMatricule = new System.Windows.Forms.Label();
+            this.txtMatricule = new System.Windows.Forms.TextBox();
+            this.pnlButtons = new System.Windows.Forms.Panel();
             this.btnAjouter = new System.Windows.Forms.Button();
             this.btnSelectionner = new System.Windows.Forms.Button();
-            this.DgResponsableClasse = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtMatricule = new System.Windows.Forms.TextBox();
-            this.txtIdentifiant = new System.Windows.Forms.TextBox();
-            this.txtTelephone = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.btnModifier = new System.Windows.Forms.Button();
+            this.btnSupprimer = new System.Windows.Forms.Button();
+            this.btnEffacer = new System.Windows.Forms.Button();
+            this.pnlHeader = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.pnlMain.SuspendLayout();
+            this.pnlGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgResponsableClasse)).BeginInit();
+            this.pnlCard.SuspendLayout();
+            this.pnlButtons.SuspendLayout();
+            this.pnlHeader.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label3
+            // pnlMain
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(39, 327);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 29);
-            this.label3.TabIndex = 21;
-            this.label3.Text = "Adresse";
+            this.pnlMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(17)))), ((int)(((byte)(26)))));
+            this.pnlMain.Controls.Add(this.pnlGrid);
+            this.pnlMain.Controls.Add(this.pnlCard);
+            this.pnlMain.Controls.Add(this.pnlHeader);
+            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlMain.Location = new System.Drawing.Point(0, 0);
+            this.pnlMain.Name = "pnlMain";
+            this.pnlMain.Size = new System.Drawing.Size(1924, 909);
+            this.pnlMain.TabIndex = 0;
             // 
-            // label2
+            // pnlGrid
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(39, 227);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 29);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "Prenom";
+            this.pnlGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(40)))));
+            this.pnlGrid.Controls.Add(this.DgResponsableClasse);
+            this.pnlGrid.Controls.Add(this.lblCount);
+            this.pnlGrid.Controls.Add(this.lblGridTitle);
+            this.pnlGrid.Location = new System.Drawing.Point(601, 100);
+            this.pnlGrid.Name = "pnlGrid";
+            this.pnlGrid.Size = new System.Drawing.Size(1292, 670);
+            this.pnlGrid.TabIndex = 0;
+            this.pnlGrid.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlGrid_Paint);
             // 
-            // textBox1
+            // DgResponsableClasse
             // 
-            this.textBox1.AutoSize = true;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(41, 130);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(65, 29);
-            this.textBox1.TabIndex = 18;
-            this.textBox1.Text = "Nom";
+            this.DgResponsableClasse.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(30)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(210)))), ((int)(((byte)(235)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(80)))), ((int)(((byte)(140)))));
+            this.DgResponsableClasse.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DgResponsableClasse.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(40)))));
+            this.DgResponsableClasse.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DgResponsableClasse.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.DgResponsableClasse.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(55)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(179)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(55)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgResponsableClasse.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.DgResponsableClasse.ColumnHeadersHeight = 42;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(210)))), ((int)(((byte)(235)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(80)))), ((int)(((byte)(140)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgResponsableClasse.DefaultCellStyle = dataGridViewCellStyle3;
+            this.DgResponsableClasse.EnableHeadersVisualStyles = false;
+            this.DgResponsableClasse.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(42)))), ((int)(((byte)(65)))));
+            this.DgResponsableClasse.Location = new System.Drawing.Point(20, 55);
+            this.DgResponsableClasse.MultiSelect = false;
+            this.DgResponsableClasse.Name = "DgResponsableClasse";
+            this.DgResponsableClasse.ReadOnly = true;
+            this.DgResponsableClasse.RowHeadersVisible = false;
+            this.DgResponsableClasse.RowHeadersWidth = 62;
+            this.DgResponsableClasse.RowTemplate.Height = 40;
+            this.DgResponsableClasse.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DgResponsableClasse.Size = new System.Drawing.Size(1228, 549);
+            this.DgResponsableClasse.TabIndex = 0;
             // 
-            // btnSupprimer
+            // lblCount
             // 
-            this.btnSupprimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSupprimer.Location = new System.Drawing.Point(899, 835);
-            this.btnSupprimer.Name = "btnSupprimer";
-            this.btnSupprimer.Size = new System.Drawing.Size(226, 55);
-            this.btnSupprimer.TabIndex = 17;
-            this.btnSupprimer.Text = "&Supprimer";
-            this.btnSupprimer.UseVisualStyleBackColor = true;
-            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
+            this.lblCount.AutoSize = true;
+            this.lblCount.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(110)))), ((int)(((byte)(150)))));
+            this.lblCount.Location = new System.Drawing.Point(530, 23);
+            this.lblCount.Name = "lblCount";
+            this.lblCount.Size = new System.Drawing.Size(94, 25);
+            this.lblCount.TabIndex = 1;
+            this.lblCount.Text = "0 entrée(s)";
             // 
-            // txtAdresse
+            // lblGridTitle
             // 
-            this.txtAdresse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAdresse.Location = new System.Drawing.Point(43, 359);
-            this.txtAdresse.Name = "txtAdresse";
-            this.txtAdresse.Size = new System.Drawing.Size(226, 35);
-            this.txtAdresse.TabIndex = 14;
+            this.lblGridTitle.AutoSize = true;
+            this.lblGridTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
+            this.lblGridTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(179)))), ((int)(((byte)(237)))));
+            this.lblGridTitle.Location = new System.Drawing.Point(20, 20);
+            this.lblGridTitle.Name = "lblGridTitle";
+            this.lblGridTitle.Size = new System.Drawing.Size(269, 30);
+            this.lblGridTitle.TabIndex = 2;
+            this.lblGridTitle.Text = "✦  Liste des Responsables";
             // 
-            // txtPrenom
+            // pnlCard
             // 
-            this.txtPrenom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrenom.Location = new System.Drawing.Point(45, 259);
-            this.txtPrenom.Name = "txtPrenom";
-            this.txtPrenom.Size = new System.Drawing.Size(226, 35);
-            this.txtPrenom.TabIndex = 13;
+            this.pnlCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(40)))));
+            this.pnlCard.Controls.Add(this.lblCardTitle);
+            this.pnlCard.Controls.Add(this.lblNom);
+            this.pnlCard.Controls.Add(this.txtNom);
+            this.pnlCard.Controls.Add(this.lblPrenom);
+            this.pnlCard.Controls.Add(this.txtPrenom);
+            this.pnlCard.Controls.Add(this.lblEmail);
+            this.pnlCard.Controls.Add(this.txtEmail);
+            this.pnlCard.Controls.Add(this.lblTelephone);
+            this.pnlCard.Controls.Add(this.txtTelephone);
+            this.pnlCard.Controls.Add(this.lblAdresse);
+            this.pnlCard.Controls.Add(this.txtAdresse);
+            this.pnlCard.Controls.Add(this.lblIdentifiant);
+            this.pnlCard.Controls.Add(this.txtIdentifiant);
+            this.pnlCard.Controls.Add(this.lblMatricule);
+            this.pnlCard.Controls.Add(this.txtMatricule);
+            this.pnlCard.Controls.Add(this.pnlButtons);
+            this.pnlCard.Location = new System.Drawing.Point(20, 100);
+            this.pnlCard.Name = "pnlCard";
+            this.pnlCard.Size = new System.Drawing.Size(552, 698);
+            this.pnlCard.TabIndex = 1;
+            this.pnlCard.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlCard_Paint);
+            // 
+            // lblCardTitle
+            // 
+            this.lblCardTitle.AutoSize = true;
+            this.lblCardTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
+            this.lblCardTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(179)))), ((int)(((byte)(237)))));
+            this.lblCardTitle.Location = new System.Drawing.Point(20, 18);
+            this.lblCardTitle.Name = "lblCardTitle";
+            this.lblCardTitle.Size = new System.Drawing.Size(100, 30);
+            this.lblCardTitle.TabIndex = 0;
+            this.lblCardTitle.Text = "✦  Saisie";
+            // 
+            // lblNom
+            // 
+            this.lblNom.AutoSize = true;
+            this.lblNom.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblNom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(150)))), ((int)(((byte)(180)))));
+            this.lblNom.Location = new System.Drawing.Point(20, 58);
+            this.lblNom.Name = "lblNom";
+            this.lblNom.Size = new System.Drawing.Size(57, 25);
+            this.lblNom.TabIndex = 1;
+            this.lblNom.Text = "NOM";
             // 
             // txtNom
             // 
-            this.txtNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNom.Location = new System.Drawing.Point(45, 162);
+            this.txtNom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(55)))));
+            this.txtNom.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNom.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtNom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(225)))), ((int)(((byte)(255)))));
+            this.txtNom.Location = new System.Drawing.Point(20, 82);
+            this.txtNom.MaxLength = 80;
             this.txtNom.Name = "txtNom";
-            this.txtNom.Size = new System.Drawing.Size(226, 35);
-            this.txtNom.TabIndex = 12;
+            this.txtNom.Size = new System.Drawing.Size(170, 32);
+            this.txtNom.TabIndex = 0;
             // 
-            // btnModifier
+            // lblPrenom
             // 
-            this.btnModifier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModifier.Location = new System.Drawing.Point(628, 835);
-            this.btnModifier.Name = "btnModifier";
-            this.btnModifier.Size = new System.Drawing.Size(226, 55);
-            this.btnModifier.TabIndex = 16;
-            this.btnModifier.Text = "&Modifier";
-            this.btnModifier.UseVisualStyleBackColor = true;
-            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
+            this.lblPrenom.AutoSize = true;
+            this.lblPrenom.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblPrenom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(150)))), ((int)(((byte)(180)))));
+            this.lblPrenom.Location = new System.Drawing.Point(20, 146);
+            this.lblPrenom.Name = "lblPrenom";
+            this.lblPrenom.Size = new System.Drawing.Size(90, 25);
+            this.lblPrenom.TabIndex = 2;
+            this.lblPrenom.Text = "PRÉNOM";
+            // 
+            // txtPrenom
+            // 
+            this.txtPrenom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(55)))));
+            this.txtPrenom.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPrenom.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtPrenom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(225)))), ((int)(((byte)(255)))));
+            this.txtPrenom.Location = new System.Drawing.Point(20, 170);
+            this.txtPrenom.MaxLength = 80;
+            this.txtPrenom.Name = "txtPrenom";
+            this.txtPrenom.Size = new System.Drawing.Size(170, 32);
+            this.txtPrenom.TabIndex = 1;
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(150)))), ((int)(((byte)(180)))));
+            this.lblEmail.Location = new System.Drawing.Point(20, 234);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(67, 25);
+            this.lblEmail.TabIndex = 3;
+            this.lblEmail.Text = "EMAIL";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(55)))));
+            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(225)))), ((int)(((byte)(255)))));
+            this.txtEmail.Location = new System.Drawing.Point(20, 258);
+            this.txtEmail.MaxLength = 80;
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(170, 32);
+            this.txtEmail.TabIndex = 2;
+            // 
+            // lblTelephone
+            // 
+            this.lblTelephone.AutoSize = true;
+            this.lblTelephone.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblTelephone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(150)))), ((int)(((byte)(180)))));
+            this.lblTelephone.Location = new System.Drawing.Point(20, 322);
+            this.lblTelephone.Name = "lblTelephone";
+            this.lblTelephone.Size = new System.Drawing.Size(115, 25);
+            this.lblTelephone.TabIndex = 4;
+            this.lblTelephone.Text = "TÉLÉPHONE";
+            // 
+            // txtTelephone
+            // 
+            this.txtTelephone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(55)))));
+            this.txtTelephone.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTelephone.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtTelephone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(225)))), ((int)(((byte)(255)))));
+            this.txtTelephone.Location = new System.Drawing.Point(20, 346);
+            this.txtTelephone.MaxLength = 15;
+            this.txtTelephone.Name = "txtTelephone";
+            this.txtTelephone.Size = new System.Drawing.Size(170, 32);
+            this.txtTelephone.TabIndex = 3;
+            // 
+            // lblAdresse
+            // 
+            this.lblAdresse.AutoSize = true;
+            this.lblAdresse.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblAdresse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(150)))), ((int)(((byte)(180)))));
+            this.lblAdresse.Location = new System.Drawing.Point(340, 58);
+            this.lblAdresse.Name = "lblAdresse";
+            this.lblAdresse.Size = new System.Drawing.Size(90, 25);
+            this.lblAdresse.TabIndex = 5;
+            this.lblAdresse.Text = "ADRESSE";
+            // 
+            // txtAdresse
+            // 
+            this.txtAdresse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(55)))));
+            this.txtAdresse.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAdresse.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtAdresse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(225)))), ((int)(((byte)(255)))));
+            this.txtAdresse.Location = new System.Drawing.Point(340, 82);
+            this.txtAdresse.MaxLength = 300;
+            this.txtAdresse.Name = "txtAdresse";
+            this.txtAdresse.Size = new System.Drawing.Size(170, 32);
+            this.txtAdresse.TabIndex = 4;
+            // 
+            // lblIdentifiant
+            // 
+            this.lblIdentifiant.AutoSize = true;
+            this.lblIdentifiant.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblIdentifiant.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(150)))), ((int)(((byte)(180)))));
+            this.lblIdentifiant.Location = new System.Drawing.Point(340, 146);
+            this.lblIdentifiant.Name = "lblIdentifiant";
+            this.lblIdentifiant.Size = new System.Drawing.Size(125, 25);
+            this.lblIdentifiant.TabIndex = 6;
+            this.lblIdentifiant.Text = "IDENTIFIANT";
+            // 
+            // txtIdentifiant
+            // 
+            this.txtIdentifiant.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(55)))));
+            this.txtIdentifiant.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtIdentifiant.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtIdentifiant.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(225)))), ((int)(((byte)(255)))));
+            this.txtIdentifiant.Location = new System.Drawing.Point(340, 170);
+            this.txtIdentifiant.MaxLength = 50;
+            this.txtIdentifiant.Name = "txtIdentifiant";
+            this.txtIdentifiant.Size = new System.Drawing.Size(170, 32);
+            this.txtIdentifiant.TabIndex = 5;
+            // 
+            // lblMatricule
+            // 
+            this.lblMatricule.AutoSize = true;
+            this.lblMatricule.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblMatricule.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(150)))), ((int)(((byte)(180)))));
+            this.lblMatricule.Location = new System.Drawing.Point(340, 234);
+            this.lblMatricule.Name = "lblMatricule";
+            this.lblMatricule.Size = new System.Drawing.Size(113, 25);
+            this.lblMatricule.TabIndex = 7;
+            this.lblMatricule.Text = "MATRICULE";
+            // 
+            // txtMatricule
+            // 
+            this.txtMatricule.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(55)))));
+            this.txtMatricule.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMatricule.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtMatricule.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(225)))), ((int)(((byte)(255)))));
+            this.txtMatricule.Location = new System.Drawing.Point(340, 258);
+            this.txtMatricule.MaxLength = 20;
+            this.txtMatricule.Name = "txtMatricule";
+            this.txtMatricule.Size = new System.Drawing.Size(170, 32);
+            this.txtMatricule.TabIndex = 6;
+            // 
+            // pnlButtons
+            // 
+            this.pnlButtons.BackColor = System.Drawing.Color.Transparent;
+            this.pnlButtons.Controls.Add(this.btnAjouter);
+            this.pnlButtons.Controls.Add(this.btnSelectionner);
+            this.pnlButtons.Controls.Add(this.btnModifier);
+            this.pnlButtons.Controls.Add(this.btnSupprimer);
+            this.pnlButtons.Controls.Add(this.btnEffacer);
+            this.pnlButtons.Location = new System.Drawing.Point(20, 430);
+            this.pnlButtons.Name = "pnlButtons";
+            this.pnlButtons.Size = new System.Drawing.Size(510, 240);
+            this.pnlButtons.TabIndex = 8;
             // 
             // btnAjouter
             // 
-            this.btnAjouter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAjouter.Location = new System.Drawing.Point(364, 835);
+            this.btnAjouter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(139)))), ((int)(((byte)(253)))));
+            this.btnAjouter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAjouter.FlatAppearance.BorderSize = 0;
+            this.btnAjouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAjouter.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnAjouter.ForeColor = System.Drawing.Color.White;
+            this.btnAjouter.Location = new System.Drawing.Point(0, 0);
             this.btnAjouter.Name = "btnAjouter";
-            this.btnAjouter.Size = new System.Drawing.Size(226, 55);
-            this.btnAjouter.TabIndex = 15;
-            this.btnAjouter.Text = "&Ajouter";
-            this.btnAjouter.UseVisualStyleBackColor = true;
+            this.btnAjouter.Size = new System.Drawing.Size(490, 44);
+            this.btnAjouter.TabIndex = 0;
+            this.btnAjouter.Text = "＋  Ajouter";
+            this.btnAjouter.UseVisualStyleBackColor = false;
             this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
             // btnSelectionner
             // 
-            this.btnSelectionner.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSelectionner.Location = new System.Drawing.Point(44, 39);
+            this.btnSelectionner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(55)))));
+            this.btnSelectionner.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSelectionner.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(100)))));
+            this.btnSelectionner.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSelectionner.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnSelectionner.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(190)))), ((int)(((byte)(220)))));
+            this.btnSelectionner.Location = new System.Drawing.Point(0, 54);
             this.btnSelectionner.Name = "btnSelectionner";
-            this.btnSelectionner.Size = new System.Drawing.Size(226, 52);
-            this.btnSelectionner.TabIndex = 11;
-            this.btnSelectionner.Text = "&Selectionner";
-            this.btnSelectionner.UseVisualStyleBackColor = true;
+            this.btnSelectionner.Size = new System.Drawing.Size(490, 44);
+            this.btnSelectionner.TabIndex = 1;
+            this.btnSelectionner.Text = "⊙  Sélectionner";
+            this.btnSelectionner.UseVisualStyleBackColor = false;
             this.btnSelectionner.Click += new System.EventHandler(this.btnSelectionner_Click);
             // 
-            // DgResponsableClasse
+            // btnModifier
             // 
-            this.DgResponsableClasse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgResponsableClasse.Location = new System.Drawing.Point(373, 74);
-            this.DgResponsableClasse.Name = "DgResponsableClasse";
-            this.DgResponsableClasse.RowHeadersWidth = 62;
-            this.DgResponsableClasse.Size = new System.Drawing.Size(1464, 597);
-            this.DgResponsableClasse.TabIndex = 19;
+            this.btnModifier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(55)))));
+            this.btnModifier.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModifier.Enabled = false;
+            this.btnModifier.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(170)))), ((int)(((byte)(50)))));
+            this.btnModifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModifier.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnModifier.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(170)))), ((int)(((byte)(50)))));
+            this.btnModifier.Location = new System.Drawing.Point(0, 108);
+            this.btnModifier.Name = "btnModifier";
+            this.btnModifier.Size = new System.Drawing.Size(490, 44);
+            this.btnModifier.TabIndex = 2;
+            this.btnModifier.Text = "✎  Modifier";
+            this.btnModifier.UseVisualStyleBackColor = false;
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             // 
-            // label1
+            // btnSupprimer
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(38, 715);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 29);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "Matricule";
+            this.btnSupprimer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(55)))));
+            this.btnSupprimer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSupprimer.Enabled = false;
+            this.btnSupprimer.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.btnSupprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSupprimer.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnSupprimer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.btnSupprimer.Location = new System.Drawing.Point(0, 162);
+            this.btnSupprimer.Name = "btnSupprimer";
+            this.btnSupprimer.Size = new System.Drawing.Size(490, 44);
+            this.btnSupprimer.TabIndex = 3;
+            this.btnSupprimer.Text = "🗑  Supprimer";
+            this.btnSupprimer.UseVisualStyleBackColor = false;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
-            // label4
+            // btnEffacer
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(36, 617);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(116, 29);
-            this.label4.TabIndex = 26;
-            this.label4.Text = "Identifiant";
+            this.btnEffacer.BackColor = System.Drawing.Color.Transparent;
+            this.btnEffacer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEffacer.FlatAppearance.BorderSize = 0;
+            this.btnEffacer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEffacer.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnEffacer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(110)))), ((int)(((byte)(150)))));
+            this.btnEffacer.Location = new System.Drawing.Point(0, 216);
+            this.btnEffacer.Name = "btnEffacer";
+            this.btnEffacer.Size = new System.Drawing.Size(490, 34);
+            this.btnEffacer.TabIndex = 4;
+            this.btnEffacer.Text = "↺  Réinitialiser";
+            this.btnEffacer.UseVisualStyleBackColor = false;
+            this.btnEffacer.Click += new System.EventHandler(this.btnEffacer_Click);
             // 
-            // label5
+            // pnlHeader
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(38, 520);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(131, 29);
-            this.label5.TabIndex = 25;
-            this.label5.Text = "Telephone";
+            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(35)))));
+            this.pnlHeader.Controls.Add(this.lblTitle);
+            this.pnlHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnlHeader.Name = "pnlHeader";
+            this.pnlHeader.Size = new System.Drawing.Size(1872, 80);
+            this.pnlHeader.TabIndex = 2;
+            this.pnlHeader.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlHeader_Paint);
             // 
-            // txtMatricule
+            // lblTitle
             // 
-            this.txtMatricule.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMatricule.Location = new System.Drawing.Point(42, 747);
-            this.txtMatricule.Name = "txtMatricule";
-            this.txtMatricule.Size = new System.Drawing.Size(226, 35);
-            this.txtMatricule.TabIndex = 24;
-            // 
-            // txtIdentifiant
-            // 
-            this.txtIdentifiant.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdentifiant.Location = new System.Drawing.Point(42, 649);
-            this.txtIdentifiant.Name = "txtIdentifiant";
-            this.txtIdentifiant.Size = new System.Drawing.Size(226, 35);
-            this.txtIdentifiant.TabIndex = 23;
-            // 
-            // txtTelephone
-            // 
-            this.txtTelephone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelephone.Location = new System.Drawing.Point(42, 552);
-            this.txtTelephone.Name = "txtTelephone";
-            this.txtTelephone.Size = new System.Drawing.Size(226, 35);
-            this.txtTelephone.TabIndex = 22;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(38, 427);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 29);
-            this.label6.TabIndex = 29;
-            this.label6.Text = "Email";
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(42, 459);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(226, 35);
-            this.txtEmail.TabIndex = 28;
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(255)))));
+            this.lblTitle.Location = new System.Drawing.Point(30, 14);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(479, 48);
+            this.lblTitle.TabIndex = 1;
+            this.lblTitle.Text = "👤  Responsables de Classe";
             // 
             // frmResponsableClasse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 1014);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(17)))), ((int)(((byte)(26)))));
+            this.ClientSize = new System.Drawing.Size(1924, 909);
             this.ControlBox = false;
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtMatricule);
-            this.Controls.Add(this.txtIdentifiant);
-            this.Controls.Add(this.txtTelephone);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.btnSupprimer);
-            this.Controls.Add(this.txtAdresse);
-            this.Controls.Add(this.txtPrenom);
-            this.Controls.Add(this.txtNom);
-            this.Controls.Add(this.btnModifier);
-            this.Controls.Add(this.btnAjouter);
-            this.Controls.Add(this.btnSelectionner);
-            this.Controls.Add(this.DgResponsableClasse);
+            this.Controls.Add(this.pnlMain);
             this.Name = "frmResponsableClasse";
-            this.Text = "Responsable Classe";
+            this.Text = "Responsables de Classe";
             this.Load += new System.EventHandler(this.frmResponsableClasse_Load);
+            this.pnlMain.ResumeLayout(false);
+            this.pnlGrid.ResumeLayout(false);
+            this.pnlGrid.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgResponsableClasse)).EndInit();
+            this.pnlCard.ResumeLayout(false);
+            this.pnlCard.PerformLayout();
+            this.pnlButtons.ResumeLayout(false);
+            this.pnlHeader.ResumeLayout(false);
+            this.pnlHeader.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label textBox1;
-        private System.Windows.Forms.Button btnSupprimer;
-        private System.Windows.Forms.TextBox txtAdresse;
-        private System.Windows.Forms.TextBox txtPrenom;
+        private System.Windows.Forms.Panel pnlMain;
+        private System.Windows.Forms.Panel pnlHeader;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Panel pnlCard;
+        private System.Windows.Forms.Label lblCardTitle;
+        private System.Windows.Forms.Label lblNom;
         private System.Windows.Forms.TextBox txtNom;
-        private System.Windows.Forms.Button btnModifier;
+        private System.Windows.Forms.Label lblPrenom;
+        private System.Windows.Forms.TextBox txtPrenom;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Label lblTelephone;
+        private System.Windows.Forms.TextBox txtTelephone;
+        private System.Windows.Forms.Label lblAdresse;
+        private System.Windows.Forms.TextBox txtAdresse;
+        private System.Windows.Forms.Label lblIdentifiant;
+        private System.Windows.Forms.TextBox txtIdentifiant;
+        private System.Windows.Forms.Label lblMatricule;
+        private System.Windows.Forms.TextBox txtMatricule;
+        private System.Windows.Forms.Panel pnlButtons;
         private System.Windows.Forms.Button btnAjouter;
         private System.Windows.Forms.Button btnSelectionner;
+        private System.Windows.Forms.Button btnModifier;
+        private System.Windows.Forms.Button btnSupprimer;
+        private System.Windows.Forms.Button btnEffacer;
+        private System.Windows.Forms.Panel pnlGrid;
+        private System.Windows.Forms.Label lblGridTitle;
+        private System.Windows.Forms.Label lblCount;
         private System.Windows.Forms.DataGridView DgResponsableClasse;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtMatricule;
-        private System.Windows.Forms.TextBox txtIdentifiant;
-        private System.Windows.Forms.TextBox txtTelephone;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtEmail;
     }
 }

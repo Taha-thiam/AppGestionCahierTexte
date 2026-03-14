@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AppGestionCahierTexte.Models
 {
@@ -12,11 +9,15 @@ namespace AppGestionCahierTexte.Models
         [Key]
         public int IdAnneeAcademique { get; set; }
 
+        // Ex: "2024-2025"
         [Required, MaxLength(10)]
         public string LibelleAnneeAcademique { get; set; }
 
         [Required]
-        public int ValueAnneeAcademique { get; set; }=DateTime.Now.Year;
+        public int ValueAnneeAcademique { get; set; } = DateTime.Now.Year;
 
+        public bool EstActive { get; set; } = false;
+
+        public virtual ICollection<Classe> Classes { get; set; }
     }
 }

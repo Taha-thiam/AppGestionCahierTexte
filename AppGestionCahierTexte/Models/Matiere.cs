@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AppGestionCahierTexte.Models
 {
@@ -11,13 +7,25 @@ namespace AppGestionCahierTexte.Models
     {
         [Key]
         public int idMatiere { get; set; }
+
         [Required, MaxLength(200)]
         public string libelleMatiere { get; set; }
+
         [Required]
-        public int? VolumeHoraireMatiere { get; set; }
+        public int VolumeHoraireMatiere { get; set; }
 
+        // Ex: "L1", "L2", "M1", "M2"
         [Required, MaxLength(80)]
-        public String Niveau { get; set; }
+        public string Niveau { get; set; }
 
+        // Une matière peut avoir plusieurs syllabus
+        public virtual ICollection<Syllabus> Syllabuses { get; set; }
+    }
+
+    public class printMatiere
+            {
+        public string libelleMatiere { get; set; }
+        public int VolumeHoraireMatiere { get; set; }
+        public string Niveau { get; set; }
     }
 }

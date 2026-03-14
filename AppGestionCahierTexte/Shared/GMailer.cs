@@ -1,82 +1,70 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AppGestionCahierTexte.Shared
 {
     public class GMailer
     {
+        // ── Configuration SMTP (statique) ─────────────────────────────────────
         public static string GmailUsername { get; set; }
         public static string GmailPassword { get; set; }
-        public static string GmailHost { get; set; }
-        public static int GmailPort { get; set; }
-        public static bool GmailSSL { get; set; }
+        public static string GmailHost { get; set; } = "smtp.gmail.com";
+        public static int GmailPort { get; set; } = 587;
+        public static bool GmailSSL { get; set; } = true;
 
-        // Propriétés de l'email
+        // ── Propriétés du message ─────────────────────────────────────────────
         public string ToEmail { get; set; }
         public string Subject { get; set; }
         public string Body { get; set; }
         public bool IsHtml { get; set; }
 
-        static GMailer()
-        {
-            GmailHost = "smtp.gmail.com";
-            GmailPort = 587; // 587 pour TLS, 465 pour SSL
-            GmailSSL = true;
-        }
-
+        // ── Envoi instance ────────────────────────────────────────────────────
         public void Send()
         {
-            SmtpClient smtp = new SmtpClient();
-            smtp.Host = GmailHost;
-            smtp.Port = GmailPort;
-            smtp.EnableSsl = GmailSSL;
-            smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-            smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new NetworkCredential(GmailUsername, GmailPassword);
-
-            try
+            using (var smtp = new SmtpClient
             {
-                using (var message = new MailMessage(GmailUsername, ToEmail))
+                Host = GmailHost,
+                Port = GmailPort,
+                EnableSsl = GmailSSL,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(GmailUsername, GmailPassword)
+            })
+            using (var message = new MailMessage(GmailUsername, ToEmail)
+            {
+                Subject = Subject,
+                Body = Body,
+                IsBodyHtml = IsHtml
+            })
+            {
+                try
                 {
-                    message.Subject = Subject;
-                    message.Body = Body;
-                    message.IsBodyHtml = IsHtml;
-
                     smtp.Send(message);
                 }
-            }
-            catch (SmtpException ex)
-            {
-                throw new Exception($"Erreur SMTP lors de l'envoi de l'email : {ex.Message}", ex);
-            }
-            finally
-            {
-                smtp.Dispose();
+                catch (SmtpException ex)
+                {
+                    throw new Exception($"Erreur SMTP : {ex.Message}", ex);
+                }
             }
         }
 
-        public static void senMail(string destinataire, string sujet, string corps, bool isHtml = false)
+        // ── Envoi statique (helper) ───────────────────────────────────────────
+        public static void SendMail(string destinataire, string sujet, string corps, bool isHtml = false)
         {
             try
             {
-                GMailer mailer = new GMailer();
-                mailer.ToEmail = destinataire;
-                mailer.Subject = sujet;
-                mailer.Body = corps;
-                mailer.IsHtml = isHtml;
-
-                mailer.Send();
-
-                Console.WriteLine($"Email envoyé avec succès à {destinataire}");
+                new GMailer
+                {
+                    ToEmail = destinataire,
+                    Subject = sujet,
+                    Body = corps,
+                    IsHtml = isHtml
+                }.Send();
             }
             catch (Exception ex)
             {
-                throw new Exception($"Erreur lors de l'envoi de l'email à {destinataire} : {ex.Message}", ex);
+                throw new Exception($"Erreur envoi email à {destinataire} : {ex.Message}", ex);
             }
         }
     }

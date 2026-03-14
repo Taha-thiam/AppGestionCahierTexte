@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using AppGestionCahierTexte.Views.Parametre;
 using Microsoft.VisualBasic.Devices;
@@ -14,60 +9,51 @@ namespace AppGestionCahierTexte
 {
     public partial class frmMDI : Form
     {
+        // ── Propriétés publiques transmises depuis frmConnexion ───────────────
+        public string profil;
+        public int idUtilisateur;
+        public string nomUtilisateur;
+
         public frmMDI()
         {
             InitializeComponent();
         }
-        public string profil;
-        private void fermer()
+
+        // ── Fermer tous les enfants MDI ───────────────────────────────────────
+        private void Fermer()
         {
-            Form[] charr = this.MdiChildren;
-            foreach (Form chform in charr)
+            foreach (Form child in this.MdiChildren)
+                child.Close();
+        }
+
+        // ── Ouvrir un formulaire enfant sans bordure ──────────────────────────
+        private void OuvrirForme(Form f)
+        {
+            f.MdiParent = this;
+            f.FormBorderStyle = FormBorderStyle.None;
+            f.Show();
+            f.WindowState = FormWindowState.Maximized;
+        }
+
+        // ── Highlight bouton actif ────────────────────────────────────────────
+        private Button _activeBtn = null;
+
+        private void SetActive(Button btn)
+        {
+            if (_activeBtn != null)
             {
-                chform.Close();
+                _activeBtn.BackColor = Color.Transparent;
+                _activeBtn.ForeColor = Color.FromArgb(160, 170, 200);
+            }
+            _activeBtn = btn;
+            if (_activeBtn != null)
+            {
+                _activeBtn.BackColor = Color.FromArgb(30, 60, 110);
+                _activeBtn.ForeColor = Color.White;
             }
         }
 
-        private void matiereToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            fermer();
-            frmMatiere f = new frmMatiere();
-            f.MdiParent = this;
-            f.Show();  
-            f.WindowState = FormWindowState.Maximized;
-        }
-
-        private void classeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            fermer();
-            frmClasse f = new frmClasse();
-            f.MdiParent = this;
-            f.Show();
-            f.WindowState = FormWindowState.Maximized;
-        }
-
-        private void anneeAcademiqueToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            fermer();
-            frmAnneeAcademique f = new frmAnneeAcademique();
-            f.MdiParent = this;
-            f.Show();
-            f.WindowState = FormWindowState.Maximized;
-        }
-
-        private void seDeconnecterToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmConnexion f = new frmConnexion();
-            f.Show();
-            this.Close();
-        }
-
-        private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-         
-
+        // ── Load ──────────────────────────────────────────────────────────────
         private void frmMDI_Load(object sender, EventArgs e)
         {
             Computer myComputer = new Computer();
@@ -75,47 +61,140 @@ namespace AppGestionCahierTexte
             this.Height = myComputer.Screen.Bounds.Height;
             this.Location = new Point(0, 0);
 
-            //if (profil != "Admin")
-            //{
-            //    securitéToolStripMenuItem.Visible = false;
-            //}
+            lblUserProfil.Text = string.IsNullOrEmpty(nomUtilisateur)
+                ? profil
+                : $"{nomUtilisateur}  ({profil})";
+
+            AppliquerDroits();
         }
 
-        private void syllabusToolStripMenuItem_Click(object sender, EventArgs e)
+        // ── Droits par rôle ───────────────────────────────────────────────────
+        private void AppliquerDroits()
         {
-            fermer();
-            frmSyllabus f = new frmSyllabus();
-            f.MdiParent = this;
-            f.Show();
-            f.WindowState = FormWindowState.Maximized;
+            switch (profil)
+            {
+                case "Admin":
+                    // Tout visible — rien à masquer
+                    break;
+
+                case "Professeur":
+                    btnMatiere.Visible = false;
+                    btnClasse.Visible = false;
+                    btnAnneeAcademique.Visible = false;
+                    btnResponsableClasse.Visible = false;
+                    btnProfesseur.Visible = false;
+                    btnCahierTexte.Visible = false;
+                    // ✅ btnSyllabus + btnDetailSyllabus restent visibles
+                    break;
+
+                case "ResponsableClasse":
+                    btnMatiere.Visible = false;
+                    btnClasse.Visible = false;
+                    btnAnneeAcademique.Visible = false;
+                    btnResponsableClasse.Visible = false;
+                    btnProfesseur.Visible = false;
+                    // ✅ btnSyllabus + btnDetailSyllabus + btnCahierTexte visibles
+                    break;
+
+                default:
+                    // Profil inconnu → tout masquer par sécurité
+                    btnMatiere.Visible = false;
+                    btnClasse.Visible = false;
+                    btnAnneeAcademique.Visible = false;
+                    btnSyllabus.Visible = false;
+                    btnDetailSyllabus.Visible = false;
+                    btnCahierTexte.Visible = false;
+                    btnResponsableClasse.Visible = false;
+                    btnProfesseur.Visible = false;
+                    break;
+            }
         }
 
-        private void responsableClasseToolStripMenuItem_Click(object sender, EventArgs e)
+        // ── Navigation ────────────────────────────────────────────────────────
+        private void btnMatiere_Click(object sender, EventArgs e)
         {
-            fermer();
-            frmResponsableClasse f = new frmResponsableClasse();
-            f.MdiParent = this;
-            f.Show();
-            f.WindowState = FormWindowState.Maximized;
+            SetActive(btnMatiere); Fermer();
+            OuvrirForme(new frmMatiere());
         }
 
-        private void responsableClasseToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void btnClasse_Click(object sender, EventArgs e)
         {
-            fermer();
-            frmResponsableClasse f = new frmResponsableClasse();
-            f.MdiParent = this;
-            f.Show();
-            f.WindowState = FormWindowState.Maximized;
+            SetActive(btnClasse); Fermer();
+            OuvrirForme(new frmClasse());
         }
 
-        private void detailSyllabusToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnAnneeAcademique_Click(object sender, EventArgs e)
         {
-            fermer();
-            frmDetailSyllabus f = new frmDetailSyllabus();
-            f.MdiParent = this;
-            f.Show();
-            f.WindowState = FormWindowState.Maximized;
+            SetActive(btnAnneeAcademique); Fermer();
+            OuvrirForme(new frmAnneeAcademique());
+        }
 
+        private void btnSyllabus_Click(object sender, EventArgs e)
+        {
+            SetActive(btnSyllabus); Fermer();
+            OuvrirForme(new frmSyllabus
+            {
+                Profil = this.profil,
+                IdUtilisateur = this.idUtilisateur
+            });
+        }
+
+        private void btnDetailSyllabus_Click(object sender, EventArgs e)
+        {
+
+            SetActive(btnDetailSyllabus); Fermer();
+            OuvrirForme(new frmDetailSyllabus
+            {
+
+                Profil = this.profil,
+                IdUtilisateur = this.idUtilisateur
+            });
+        }
+
+        private void btnCahierTexte_Click(object sender, EventArgs e)
+        {
+            SetActive(btnCahierTexte); Fermer();
+            OuvrirForme(new frmCahierTexte
+            {
+                Profil = this.profil,
+                IdUtilisateur = this.idUtilisateur
+            });
+        }
+
+        private void btnResponsableClasse_Click(object sender, EventArgs e)
+        {
+            SetActive(btnResponsableClasse); Fermer();
+            OuvrirForme(new frmResponsableClasse());
+        }
+
+        private void btnProfesseur_Click(object sender, EventArgs e)
+        {
+            SetActive(btnProfesseur); Fermer();
+            OuvrirForme(new frmProfesseur());
+        }
+
+        private void btnDeconnecter_Click(object sender, EventArgs e)
+        {
+            new frmConnexion().Show();
+            this.Close();
+        }
+
+        private void btnQuitter_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        // ── Paint sidebar ─────────────────────────────────────────────────────
+        private void pnlSidebar_Paint(object sender, PaintEventArgs e)
+        {
+            using (var brush = new LinearGradientBrush(
+                new Point(0, pnlSidebar.Height - 3),
+                new Point(pnlSidebar.Width, pnlSidebar.Height - 3),
+                Color.FromArgb(56, 139, 253),
+                Color.FromArgb(99, 60, 220)))
+            {
+                e.Graphics.FillRectangle(brush, 0, pnlSidebar.Height - 3, pnlSidebar.Width, 3);
+            }
         }
     }
 }

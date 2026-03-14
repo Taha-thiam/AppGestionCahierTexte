@@ -1,0 +1,54 @@
+# ── Visual Studio ─────────────────────────────────────────────────────────────
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ── Build ─────────────────────────────────────────────────────────────────────
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# ── NuGet ─────────────────────────────────────────────────────────────────────
+packages/
+*.nupkg
+*.nuget.props
+*.nuget.targets
+project.lock.json
+project.fragment.lock.json
+
+# ── Setup / Installateur ──────────────────────────────────────────────────────
+SetupCahierDeTexte/Debug/
+SetupCahierDeTexte/Release/
+*.msi
+*.msm
+*.msp
+
+# ── Fichiers temporaires Windows ──────────────────────────────────────────────
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.tmp
+*.temp
+
+# ── Fichiers de publication ───────────────────────────────────────────────────
+publish/
+PublishProfiles/
+
+# ── Resharper ─────────────────────────────────────────────────────────────────
+_ReSharper*/
+*.ReSharper
+
+# ── Rider ─────────────────────────────────────────────────────────────────────
+.idea/
+
+# ── Fichiers de test ──────────────────────────────────────────────────────────
+TestResults/
+*.trx
+*.coverage
+
+# ── Logs application ──────────────────────────────────────────────────────────
+*.log
+Logs/

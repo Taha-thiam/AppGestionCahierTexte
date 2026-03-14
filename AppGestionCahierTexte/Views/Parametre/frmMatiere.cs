@@ -1,243 +1,222 @@
 ﻿using AppGestionCahierTexte.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AppGestionCahierTexte.Views.Parametre
 {
     public partial class frmMatiere : Form
     {
-            BdCahierTexteContext db = new BdCahierTexteContext();
-            private int? _selectedMatiereId = null;
+        BdCahierTexteContext db = new BdCahierTexteContext();
+        private int? _selectedMatiereId = null;
 
+        // ── Couleurs thème ────────────────────────────────────────────────────
+        private readonly Color C_BG = Color.FromArgb(15, 17, 26);
+        private readonly Color C_CARD = Color.FromArgb(22, 26, 40);
+        private readonly Color C_ACCENT = Color.FromArgb(56, 139, 253);
+        private readonly Color C_BORDER = Color.FromArgb(35, 42, 65);
+
+        public frmMatiere()
+        {
+            InitializeComponent();
+            StyleTextBoxUnderline(txtLibelle, pnlCard);
+            StyleTextBoxUnderline(txtVolumeHoraire, pnlCard);
+            StyleTextBoxUnderline(txtNiveau, pnlCard);
+        }
+
+        // ── Underline animé ───────────────────────────────────────────────────
+        private void StyleTextBoxUnderline(TextBox txt, Panel parent)
+        {
+            var line = new Panel
+            {
+                BackColor = C_BORDER,
+                Height = 2,
+                Width = txt.Width,
+                Location = new Point(txt.Left, txt.Bottom + 4),
+            };
+            parent.Controls.Add(line);
+            txt.Enter += (s, e) => line.BackColor = C_ACCENT;
+            txt.Leave += (s, e) => line.BackColor = C_BORDER;
+        }
+
+        // ── Paint cards arrondies ─────────────────────────────────────────────
+        private void pnlCard_Paint(object sender, PaintEventArgs e) => DrawCard(e.Graphics, (Panel)sender);
+        private void pnlGrid_Paint(object sender, PaintEventArgs e) => DrawCard(e.Graphics, (Panel)sender);
+
+        private void DrawCard(Graphics g, Panel p)
+        {
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+            var rect = new Rectangle(0, 0, p.Width - 1, p.Height - 1);
+            using (var path = RoundedRect(rect, 12))
+            using (var brush = new SolidBrush(C_CARD))
+                g.FillPath(brush, path);
+            using (var path = RoundedRect(rect, 12))
+            using (var pen = new Pen(C_BORDER, 1))
+                g.DrawPath(pen, path);
+        }
+
+        private GraphicsPath RoundedRect(Rectangle b, int r)
+        {
+            int d = r * 2;
+            var path = new GraphicsPath();
+            path.AddArc(b.X, b.Y, d, d, 180, 90);
+            path.AddArc(b.Right - d, b.Y, d, d, 270, 90);
+            path.AddArc(b.Right - d, b.Bottom - d, d, d, 0, 90);
+            path.AddArc(b.X, b.Bottom - d, d, d, 90, 90);
+            path.CloseFigure();
+            return path;
+        }
+
+        private void pnlHeader_Paint(object sender, PaintEventArgs e)
+        {
+            using (var brush = new LinearGradientBrush(
+                new Point(0, pnlHeader.Height - 2),
+                new Point(pnlHeader.Width, pnlHeader.Height - 2),
+                Color.FromArgb(56, 139, 253),
+                Color.FromArgb(99, 60, 220)))
+            {
+                e.Graphics.FillRectangle(brush, 0, pnlHeader.Height - 3, pnlHeader.Width, 3);
+            }
+        }
+
+        // ── Effacer / Reset ───────────────────────────────────────────────────
         private void Effacer()
         {
             txtLibelle.Text = string.Empty;
             txtVolumeHoraire.Text = string.Empty;
             txtNiveau.Text = string.Empty;
-            DgMatiere.DataSource = db.Matieres.ToList();
-            txtLibelle.Focus();
             _selectedMatiereId = null;
 
-            // Réinitialiser l'état des boutons
+            var liste = db.Matieres.ToList();
+            DgMatiere.DataSource = liste;
+            lblCount.Text = $"{liste.Count} entrée(s)";
+
             btnAjouter.Enabled = true;
             btnModifier.Enabled = false;
             btnSupprimer.Enabled = false;
+            btnAjouter.BackColor = C_ACCENT;
+
+            txtLibelle.Focus();
         }
 
-        public frmMatiere()
-        {
-            InitializeComponent();
-        }
+        // ── Load ──────────────────────────────────────────────────────────────
+        private void frmMatiere_Load(object sender, EventArgs e) => Effacer();
 
-        private void frmMatiere_Load(object sender, EventArgs e)
-        {
-            Effacer();
-        }
-
+        // ── Ajouter ───────────────────────────────────────────────────────────
         private void btnAjouter_Click(object sender, EventArgs e)
         {
             try
             {
-                // Validation des champs
-                if (string.IsNullOrWhiteSpace(txtLibelle.Text))
-                {
-                    MessageBox.Show("Veuillez saisir le libellé de la matière.",
-                        "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtLibelle.Focus();
-                    return;
-                }
+                if (!Valider(out int volumeHoraire)) return;
 
-                if (string.IsNullOrWhiteSpace(txtVolumeHoraire.Text) ||
-                    !int.TryParse(txtVolumeHoraire.Text, out int volumeHoraire))
-                {
-                    MessageBox.Show("Veuillez saisir un volume horaire valide.",
-                        "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtVolumeHoraire.Focus();
-                    return;
-                }
-
-                if (string.IsNullOrWhiteSpace(txtNiveau.Text))
-                {
-                    MessageBox.Show("Veuillez saisir le niveau.",
-                        "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtNiveau.Focus();
-                    return;
-                }
-
-                // Créer une nouvelle matière
-                Matiere nouvelleMatiere = new Matiere
+                var nouvelleMatiere = new Matiere
                 {
                     libelleMatiere = txtLibelle.Text.Trim(),
                     VolumeHoraireMatiere = volumeHoraire,
                     Niveau = txtNiveau.Text.Trim()
                 };
 
-                // Ajouter à la base de données
                 db.Matieres.Add(nouvelleMatiere);
                 db.SaveChanges();
-
-                MessageBox.Show("Matière ajoutée avec succès!",
-                    "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Rafraîchir et vider les champs
                 Effacer();
+                ShowToast("Matière ajoutée avec succès ✓", C_ACCENT);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erreur lors de l'ajout: {ex.Message}",
-                    "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowToast($"Erreur : {ex.Message}", Color.FromArgb(220, 80, 80));
             }
         }
 
+        // ── Sélectionner ──────────────────────────────────────────────────────
         private void btnSelectionner_Click(object sender, EventArgs e)
         {
             try
             {
-                if (DgMatiere.SelectedRows.Count > 0)
+                if (DgMatiere.SelectedRows.Count == 0)
                 {
-                    // Récupérer l'ID de la ligne sélectionnée
-                    _selectedMatiereId = Convert.ToInt32(DgMatiere.SelectedRows[0].Cells["idMatiere"].Value);
-
-                    // Charger les données dans les champs
-                    var matiere = db.Matieres.Find(_selectedMatiereId);
-
-                    if (matiere != null)
-                    {
-                        txtLibelle.Text = matiere.libelleMatiere;
-                        txtVolumeHoraire.Text = matiere.VolumeHoraireMatiere.ToString();
-                        txtNiveau.Text = matiere.Niveau;
-
-                        // Activer les boutons Modifier et Supprimer
-                        btnModifier.Enabled = true;
-                        btnSupprimer.Enabled = true;
-                        btnAjouter.Enabled = false;
-                    }
+                    ShowToast("Veuillez sélectionner une ligne.", Color.FromArgb(255, 170, 50));
+                    return;
                 }
-                else
-                {
-                    MessageBox.Show("Veuillez sélectionner une ligne dans le tableau.",
-                        "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+
+                _selectedMatiereId = Convert.ToInt32(DgMatiere.SelectedRows[0].Cells["idMatiere"].Value);
+                var matiere = db.Matieres.Find(_selectedMatiereId);
+                if (matiere == null) return;
+
+                txtLibelle.Text = matiere.libelleMatiere;
+                txtVolumeHoraire.Text = matiere.VolumeHoraireMatiere.ToString();
+                txtNiveau.Text = matiere.Niveau;
+
+                btnModifier.Enabled = true;
+                btnSupprimer.Enabled = true;
+                btnAjouter.Enabled = false;
+                btnAjouter.BackColor = Color.FromArgb(30, 35, 55);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erreur lors de la sélection: {ex.Message}",
-                    "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowToast($"Erreur : {ex.Message}", Color.FromArgb(220, 80, 80));
             }
         }
 
+        // ── Modifier ──────────────────────────────────────────────────────────
         private void btnModifier_Click(object sender, EventArgs e)
         {
             try
             {
-                if (_selectedMatiereId == null)
-                {
-                    MessageBox.Show("Veuillez d'abord sélectionner une matière à modifier.",
-                        "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                if (_selectedMatiereId == null || !Valider(out int volumeHoraire)) return;
 
-                // Validation des champs
-                if (string.IsNullOrWhiteSpace(txtLibelle.Text))
-                {
-                    MessageBox.Show("Veuillez saisir le libellé de la matière.",
-                        "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtLibelle.Focus();
-                    return;
-                }
-
-                if (string.IsNullOrWhiteSpace(txtVolumeHoraire.Text) ||
-                    !int.TryParse(txtVolumeHoraire.Text, out int volumeHoraire))
-                {
-                    MessageBox.Show("Veuillez saisir un volume horaire valide.",
-                        "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtVolumeHoraire.Focus();
-                    return;
-                }
-
-                if (string.IsNullOrWhiteSpace(txtNiveau.Text))
-                {
-                    MessageBox.Show("Veuillez saisir le niveau.",
-                        "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtNiveau.Focus();
-                    return;
-                }
-
-                // Récupérer la matière et modifier
                 var matiere = db.Matieres.Find(_selectedMatiereId);
+                if (matiere == null) return;
 
-                if (matiere != null)
-                {
-                    matiere.libelleMatiere = txtLibelle.Text.Trim();
-                    matiere.VolumeHoraireMatiere = volumeHoraire;
-                    matiere.Niveau = txtNiveau.Text.Trim();
+                matiere.libelleMatiere = txtLibelle.Text.Trim();
+                matiere.VolumeHoraireMatiere = volumeHoraire;
+                matiere.Niveau = txtNiveau.Text.Trim();
 
-                    db.SaveChanges();
-
-                    MessageBox.Show("Matière modifiée avec succès!",
-                        "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    Effacer();
-                }
+                db.SaveChanges();
+                Effacer();
+                ShowToast("Matière modifiée avec succès ✓", Color.FromArgb(255, 170, 50));
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erreur lors de la modification: {ex.Message}",
-                    "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowToast($"Erreur : {ex.Message}", Color.FromArgb(220, 80, 80));
             }
         }
 
+        // ── Supprimer ─────────────────────────────────────────────────────────
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
             try
             {
-                if (_selectedMatiereId == null)
-                {
-                    MessageBox.Show("Veuillez d'abord sélectionner une matière à supprimer.",
-                        "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                if (_selectedMatiereId == null) return;
 
-                // Demander confirmation
-                DialogResult result = MessageBox.Show(
-                    "Êtes-vous sûr de vouloir supprimer cette matière ?",
-                    "Confirmation de suppression",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
+                var res = MessageBox.Show(
+                    "Supprimer cette matière ? Les syllabus associés seront également affectés.",
+                    "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                if (result == DialogResult.Yes)
-                {
-                    var matiere = db.Matieres.Find(_selectedMatiereId);
+                if (res != DialogResult.Yes) return;
 
-                    if (matiere != null)
-                    {
-                        db.Matieres.Remove(matiere);
-                        db.SaveChanges();
+                var matiere = db.Matieres.Find(_selectedMatiereId);
+                if (matiere == null) return;
 
-                        MessageBox.Show("Matière supprimée avec succès!",
-                            "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        Effacer();
-                    }
-                }
+                db.Matieres.Remove(matiere);
+                db.SaveChanges();
+                Effacer();
+                ShowToast("Matière supprimée.", Color.FromArgb(220, 80, 80));
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erreur lors de la suppression: {ex.Message}",
-                    "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowToast($"Erreur : {ex.Message} — La matière est peut-être liée à des syllabus.",
+                    Color.FromArgb(220, 80, 80));
             }
         }
 
+        // ── Réinitialiser ─────────────────────────────────────────────────────
+        private void btnEffacer_Click(object sender, EventArgs e) => Effacer();
+
+        // ── TextChanged ───────────────────────────────────────────────────────
         private void txtLibelle_TextChanged(object sender, EventArgs e)
         {
-            // Limiter à 200 caractères (contrainte du modèle)
             if (txtLibelle.Text.Length > 200)
             {
                 txtLibelle.Text = txtLibelle.Text.Substring(0, 200);
@@ -247,22 +226,17 @@ namespace AppGestionCahierTexte.Views.Parametre
 
         private void txtVolumeHoraire_TextChanged(object sender, EventArgs e)
         {
-            // Accepter uniquement les chiffres
-            if (!string.IsNullOrEmpty(txtVolumeHoraire.Text))
+            if (!string.IsNullOrEmpty(txtVolumeHoraire.Text) &&
+                !int.TryParse(txtVolumeHoraire.Text, out _))
             {
-                if (!int.TryParse(txtVolumeHoraire.Text, out _))
-                {
-                    // Supprimer le dernier caractère saisi
-                    int cursorPosition = txtVolumeHoraire.SelectionStart;
-                    txtVolumeHoraire.Text = txtVolumeHoraire.Text.Remove(txtVolumeHoraire.Text.Length - 1);
-                    txtVolumeHoraire.SelectionStart = cursorPosition > 0 ? cursorPosition - 1 : 0;
-                }
+                int pos = txtVolumeHoraire.SelectionStart;
+                txtVolumeHoraire.Text = txtVolumeHoraire.Text.Remove(txtVolumeHoraire.Text.Length - 1);
+                txtVolumeHoraire.SelectionStart = pos > 0 ? pos - 1 : 0;
             }
         }
 
         private void txtNiveau_TextChanged(object sender, EventArgs e)
         {
-            // Limiter à 80 caractères (contrainte du modèle)
             if (txtNiveau.Text.Length > 80)
             {
                 txtNiveau.Text = txtNiveau.Text.Substring(0, 80);
@@ -270,6 +244,61 @@ namespace AppGestionCahierTexte.Views.Parametre
             }
         }
 
-     
+        // ── Helpers ───────────────────────────────────────────────────────────
+        private bool Valider(out int volumeHoraire)
+        {
+            volumeHoraire = 0;
+
+            if (string.IsNullOrWhiteSpace(txtLibelle.Text))
+            {
+                ShowToast("Le libellé de la matière est obligatoire.", Color.FromArgb(220, 80, 80));
+                txtLibelle.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtVolumeHoraire.Text) ||
+                !int.TryParse(txtVolumeHoraire.Text, out volumeHoraire) || volumeHoraire <= 0)
+            {
+                ShowToast("Veuillez saisir un volume horaire valide (nombre entier > 0).", Color.FromArgb(220, 80, 80));
+                txtVolumeHoraire.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtNiveau.Text))
+            {
+                ShowToast("Le niveau est obligatoire (ex: L1, M2).", Color.FromArgb(220, 80, 80));
+                txtNiveau.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        private void ShowToast(string message, Color color)
+        {
+            var toast = new Label
+            {
+                Text = "  " + message,
+                AutoSize = false,
+                Size = new Size(420, 44),
+                Location = new Point(pnlGrid.Left + 20, pnlGrid.Bottom - 60),
+                BackColor = color,
+                ForeColor = Color.White,
+                Font = new Font("Segoe UI", 10F, FontStyle.Bold),
+                TextAlign = ContentAlignment.MiddleLeft
+            };
+            Controls.Add(toast);
+            toast.BringToFront();
+
+            var t = new Timer { Interval = 2800 };
+            t.Tick += (s, ev) => { t.Stop(); Controls.Remove(toast); toast.Dispose(); };
+            t.Start();
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            frmPrintMatiere f = new frmPrintMatiere();
+            f.ShowDialog();
+        }
     }
 }

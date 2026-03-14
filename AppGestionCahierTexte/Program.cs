@@ -1,10 +1,8 @@
 ﻿using AppGestionCahierTexte.Models;
 using AppGestionCahierTexte.Shared;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AppGestionCahierTexte
@@ -17,40 +15,50 @@ namespace AppGestionCahierTexte
         [STAThread]
         static void Main()
         {
-            FirstUser();
+            try
+            {
+                CreerSuperUtilisateur();
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteFileError($"Erreur initialisation : {ex.Message}");
+            }
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmConnexion());
         }
 
-        //Cette méthode cree le super user
-        public static void FirstUser()
+        /// <summary>
+        /// Crée le chef de département par défaut si aucun n'existe encore.
+        /// Identifiant : tthiam / Mot de passe : passer123
+        /// </summary>
+        private static void CreerSuperUtilisateur()
         {
-            BdCahierTexteContext db = new BdCahierTexteContext();
-
-
-            string pass = "passer123";
-            using (MD5 md5Hash = MD5.Create())
+            using (var db = new BdCahierTexteContext())
             {
-                pass = Crypto.GetMd5Hash(md5Hash, pass);
+                if (db.ChefDepartements.FirstOrDefault() != null)
+                    return;
 
-            }
-            if (db.ChefDepartements.FirstOrDefault() == null)
-            {
-                ChefDepartement cd = new ChefDepartement()
+                string pass;
+                using (MD5 md5 = MD5.Create())
+                    pass = Crypto.GetMd5Hash(md5, "passer123");
+
+                var cd = new ChefDepartement
                 {
                     NomUtilisateur = "Thiam",
-                    PrenomUtilisateur = "taha",
+                    PrenomUtilisateur = "Taha",
                     AdresseUtilisateur = "Mariste",
-                    EmailUtilisateur = "taha@groupeisi.com ",
+                    EmailUtilisateur = "taha@groupeisi.com",
                     TelephoneUtilisateur = "78 663 66 66",
                     Identifiant = "tthiam",
                     MotDePasse = pass,
+                    NomDepartement = "Informatique"
                 };
+
                 db.ChefDepartements.Add(cd);
                 db.SaveChanges();
             }
-
         }
     }
 }

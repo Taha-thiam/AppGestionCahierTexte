@@ -2,13 +2,10 @@
 using AppGestionCahierTexte.Shared;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.Entity;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AppGestionCahierTexte.Views.Parametre
@@ -18,315 +15,371 @@ namespace AppGestionCahierTexte.Views.Parametre
         BdCahierTexteContext db = new BdCahierTexteContext();
         private int? _selectedClasseId = null;
 
-        private void Effacer()
-        {
-            txtLibelle.Text = string.Empty;
-
-            var anneesAcademiques = db.AnneeAcademiques.ToList();
-
-            var listeAvecDefaut = new List<AnneeAcademique>();
-            listeAvecDefaut.Add(new AnneeAcademique
-            {
-                IdAnneeAcademique = 0,
-                LibelleAnneeAcademique = "Sélectionner"
-            });
-            listeAvecDefaut.AddRange(anneesAcademiques);
-
-            cbbAnneeAcademique.DataSource = listeAvecDefaut;
-            cbbAnneeAcademique.DisplayMember = "LibelleAnneeAcademique";
-            cbbAnneeAcademique.ValueMember = "IdAnneeAcademique";
-            cbbAnneeAcademique.SelectedIndex = 0;
-
-            DgClasse.DataSource = db.Classes
-                .Select(c => new
-                {
-                    c.IdClasse,
-                    c.LibelleClasse,
-                    c.IdAnneeAcademique,
-                    AnneeAcademique = c.AnneeAcademique.LibelleAnneeAcademique
-                })
-                .ToList();
-
-            txtLibelle.Focus();
-            _selectedClasseId = null;
-
-            btnAjouter.Enabled = true;
-            btnModifier.Enabled = false;
-            btnSupprimer.Enabled = false;
-        }
+        // ── Couleurs thème ────────────────────────────────────────────────────
+        private readonly Color C_BG = Color.FromArgb(15, 17, 26);
+        private readonly Color C_CARD = Color.FromArgb(22, 26, 40);
+        private readonly Color C_ACCENT = Color.FromArgb(56, 139, 253);
+        private readonly Color C_BORDER = Color.FromArgb(35, 42, 65);
 
         public frmClasse()
         {
             InitializeComponent();
+            StyleTextBoxUnderline(txtLibelle, pnlCard);
+            StyleTextBoxUnderline(txtNiveau, pnlCard);
+            StyleTextBoxUnderline(txtRClasse, pnlSearch);
+            StyleTextBoxUnderline(txtRAnnee, pnlSearch);
         }
 
-        private void frmClasse_Load(object sender, EventArgs e)
+        // ── Underline animé ───────────────────────────────────────────────────
+        private void StyleTextBoxUnderline(TextBox txt, Panel parent)
         {
-            Effacer();
+            Panel line = new Panel
+            {
+                BackColor = C_BORDER,
+                Height = 2,
+                Width = txt.Width,
+                Location = new Point(txt.Left, txt.Bottom + 4),
+            };
+            parent.Controls.Add(line);
+            txt.Enter += (s, e) => line.BackColor = C_ACCENT;
+            txt.Leave += (s, e) => line.BackColor = C_BORDER;
         }
 
+        // ── Paint cards arrondies ─────────────────────────────────────────────
+        private void pnlCard_Paint(object sender, System.Windows.Forms.PaintEventArgs e) => DrawCard(e.Graphics, (Panel)sender);
+        private void pnlGrid_Paint(object sender, System.Windows.Forms.PaintEventArgs e) => DrawCard(e.Graphics, (Panel)sender);
+
+        private void DrawCard(Graphics g, Panel p)
+        {
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+            var rect = new Rectangle(0, 0, p.Width - 1, p.Height - 1);
+            using (var path = RoundedRect(rect, 12))
+            using (var brush = new SolidBrush(C_CARD))
+                g.FillPath(brush, path);
+            using (var path = RoundedRect(rect, 12))
+            using (var pen = new Pen(C_BORDER, 1))
+                g.DrawPath(pen, path);
+        }
+
+        private GraphicsPath RoundedRect(Rectangle b, int r)
+        {
+            int d = r * 2;
+            var path = new GraphicsPath();
+            path.AddArc(b.X, b.Y, d, d, 180, 90);
+            path.AddArc(b.Right - d, b.Y, d, d, 270, 90);
+            path.AddArc(b.Right - d, b.Bottom - d, d, d, 0, 90);
+            path.AddArc(b.X, b.Bottom - d, d, d, 90, 90);
+            path.CloseFigure();
+            return path;
+        }
+
+        private void pnlHeader_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+        {
+            using (var brush = new LinearGradientBrush(
+                new Point(0, pnlHeader.Height - 2),
+                new Point(pnlHeader.Width, pnlHeader.Height - 2),
+                Color.FromArgb(56, 139, 253),
+                Color.FromArgb(99, 60, 220)))
+            {
+                e.Graphics.FillRectangle(brush, 0, pnlHeader.Height - 3, pnlHeader.Width, 3);
+            }
+        }
+
+        // ── Charger ComboBox Années ───────────────────────────────────────────
+        private void ChargerAnnees()
+        {
+            var liste = new List<AnneeAcademique>();
+            liste.Add(new AnneeAcademique { IdAnneeAcademique = 0, LibelleAnneeAcademique = "— Sélectionner —" });
+            liste.AddRange(db.AnneeAcademiques.ToList());
+
+            cbbAnneeAcademique.DataSource = liste;
+            cbbAnneeAcademique.DisplayMember = "LibelleAnneeAcademique";
+            cbbAnneeAcademique.ValueMember = "IdAnneeAcademique";
+            cbbAnneeAcademique.SelectedIndex = 0;
+        }
+
+        // ── Charger ComboBox Responsables ─────────────────────────────────────
+        private void ChargerResponsables()
+        {
+            var liste = new List<object>();
+            liste.Add(new { IdUtilisateur = 0, NomComplet = "— Aucun responsable —" });
+
+            var responsables = db.ResponsableClasses
+                .Select(r => new { r.IdUtilisateur, NomComplet = r.NomUtilisateur + " " + r.PrenomUtilisateur })
+                .ToList();
+            liste.AddRange(responsables);
+
+            cbbResponsable.DataSource = liste;
+            cbbResponsable.DisplayMember = "NomComplet";
+            cbbResponsable.ValueMember = "IdUtilisateur";
+            cbbResponsable.SelectedIndex = 0;
+        }
+
+        // ── Effacer / Reset ───────────────────────────────────────────────────
+        private void Effacer()
+        {
+            txtLibelle.Text = string.Empty;
+            txtNiveau.Text = string.Empty;
+            _selectedClasseId = null;
+
+            ChargerAnnees();
+            ChargerResponsables();
+            ChargerGrille();
+
+            btnAjouter.Enabled = true;
+            btnModifier.Enabled = false;
+            btnSupprimer.Enabled = false;
+            btnAjouter.BackColor = C_ACCENT;
+
+            txtLibelle.Focus();
+        }
+
+        // ── Charger la grille ─────────────────────────────────────────────────
+        private void ChargerGrille(string filtreClasse = "", string filtreAnnee = "")
+        {
+            var query = db.Classes.Include(c => c.AnneeAcademique)
+                                  .Include(c => c.ResponsableClasse)
+                                  .AsQueryable();
+
+            if (!string.IsNullOrEmpty(filtreClasse))
+                query = query.Where(c => c.LibelleClasse.ToUpper().Contains(filtreClasse.ToUpper()));
+
+            if (!string.IsNullOrEmpty(filtreAnnee))
+                query = query.Where(c => c.AnneeAcademique.LibelleAnneeAcademique.ToUpper().Contains(filtreAnnee.ToUpper()));
+
+            var liste = query.Select(c => new
+            {
+                c.IdClasse,
+                c.LibelleClasse,
+                Niveau = c.NiveauClasse,
+                AnneeAcademique = c.AnneeAcademique.LibelleAnneeAcademique,
+                Responsable = c.ResponsableClasse != null
+                                    ? c.ResponsableClasse.NomUtilisateur + " " + c.ResponsableClasse.PrenomUtilisateur
+                                    : "—"
+            }).ToList();
+
+            DgClasse.DataSource = liste;
+            lblCount.Text = $"{liste.Count} entrée(s)";
+        }
+
+        // ── Load ──────────────────────────────────────────────────────────────
+        private void frmClasse_Load(object sender, EventArgs e) => Effacer();
+
+        // ── Ajouter ───────────────────────────────────────────────────────────
         private void btnAjouter_Click(object sender, EventArgs e)
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(txtLibelle.Text))
-                {
-                    MessageBox.Show("Veuillez saisir le libellé de la classe.",
-                        "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtLibelle.Focus();
-                    return;
-                }
-
-                if (txtLibelle.Text.Length > 10)
-                {
-                    MessageBox.Show("Le libellé ne peut pas dépasser 10 caractères.",
-                        "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    Logger.WriteFileError("Validation - Le libellé ne peut pas dépasser 10 caractères.");
-                    txtLibelle.Focus();
-                    return;
-                }
-
-                if (cbbAnneeAcademique.SelectedValue == null ||
-                    int.Parse(cbbAnneeAcademique.SelectedValue.ToString()) == 0)
-                {
-                    MessageBox.Show("Veuillez sélectionner une année académique.",
-                        "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    cbbAnneeAcademique.Focus();
-                    return;
-                }
+                if (!Valider()) return;
 
                 int idAnnee = int.Parse(cbbAnneeAcademique.SelectedValue.ToString());
-                bool classeExiste = db.Classes.Any(classe =>
-                    classe.LibelleClasse.ToLower() == txtLibelle.Text.Trim().ToLower() &&
-                    classe.IdAnneeAcademique == idAnnee);
 
-                if (classeExiste)
+                bool existe = db.Classes.Any(c =>
+                    c.LibelleClasse.ToLower() == txtLibelle.Text.Trim().ToLower() &&
+                    c.IdAnneeAcademique == idAnnee);
+
+                if (existe)
                 {
-                    MessageBox.Show("Cette classe existe déjà pour cette année académique.",
-                        "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    ShowToast("Cette classe existe déjà pour cette année.", Color.FromArgb(220, 80, 80));
                     return;
                 }
 
-                Classe c = new Classe();
-                c.LibelleClasse = txtLibelle.Text.Trim();
-                c.IdAnneeAcademique = idAnnee;
+                int? idResp = GetResponsableId();
 
-                db.Classes.Add(c);
+                var classe = new Classe
+                {
+                    LibelleClasse = txtLibelle.Text.Trim(),
+                    NiveauClasse = txtNiveau.Text.Trim(),
+                    IdAnneeAcademique = idAnnee,
+                    IdResponsableClasse = idResp
+                };
+
+                db.Classes.Add(classe);
                 db.SaveChanges();
-
-                MessageBox.Show("Classe ajoutée avec succès!",
-                    "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 Effacer();
+                ShowToast("Classe ajoutée avec succès ✓", C_ACCENT);
             }
             catch (Exception ex)
             {
                 Logger.WriteFileError($"btnAjouter_Click : {ex.Message}");
-                MessageBox.Show($"Erreur lors de l'ajout: {ex.Message}",
-                    "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowToast($"Erreur : {ex.Message}", Color.FromArgb(220, 80, 80));
             }
         }
 
+        // ── Sélectionner ──────────────────────────────────────────────────────
         private void btnSelectionner_Click(object sender, EventArgs e)
         {
             try
             {
-                if (DgClasse.SelectedRows.Count > 0)
+                if (DgClasse.SelectedRows.Count == 0)
                 {
-                    _selectedClasseId = Convert.ToInt32(DgClasse.SelectedRows[0].Cells["IdClasse"].Value);
-
-                    var classe = db.Classes.Find(_selectedClasseId);
-
-                    if (classe != null)
-                    {
-                        txtLibelle.Text = classe.LibelleClasse;
-                        cbbAnneeAcademique.SelectedValue = classe.IdAnneeAcademique;
-
-                        btnModifier.Enabled = true;
-                        btnSupprimer.Enabled = true;
-                        btnAjouter.Enabled = false;
-                    }
+                    ShowToast("Veuillez sélectionner une ligne.", Color.FromArgb(255, 170, 50));
+                    return;
                 }
+
+                _selectedClasseId = Convert.ToInt32(DgClasse.SelectedRows[0].Cells["IdClasse"].Value);
+                var c = db.Classes.Find(_selectedClasseId);
+                if (c == null) return;
+
+                txtLibelle.Text = c.LibelleClasse;
+                txtNiveau.Text = c.NiveauClasse;
+                cbbAnneeAcademique.SelectedValue = c.IdAnneeAcademique;
+
+                if (c.IdResponsableClasse.HasValue)
+                    cbbResponsable.SelectedValue = c.IdResponsableClasse.Value;
                 else
-                {
-                    MessageBox.Show("Veuillez sélectionner une ligne dans le tableau.",
-                        "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                    cbbResponsable.SelectedIndex = 0;
+
+                btnModifier.Enabled = true;
+                btnSupprimer.Enabled = true;
+                btnAjouter.Enabled = false;
+                btnAjouter.BackColor = Color.FromArgb(30, 35, 55);
             }
             catch (Exception ex)
             {
                 Logger.WriteFileError($"btnSelectionner_Click : {ex.Message}");
-                MessageBox.Show($"Erreur lors de la sélection: {ex.Message}",
-                    "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        // ── Modifier ──────────────────────────────────────────────────────────
         private void btnModifier_Click(object sender, EventArgs e)
         {
             try
             {
-                if (_selectedClasseId == null)
-                {
-                    MessageBox.Show("Veuillez d'abord sélectionner une classe à modifier.",
-                        "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                if (string.IsNullOrWhiteSpace(txtLibelle.Text))
-                {
-                    MessageBox.Show("Veuillez saisir le libellé de la classe.",
-                        "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtLibelle.Focus();
-                    return;
-                }
-
-                if (txtLibelle.Text.Length > 10)
-                {
-                    MessageBox.Show("Le libellé ne peut pas dépasser 10 caractères.",
-                        "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    Logger.WriteFileError("btnModifier_Click - Validation : Le libellé ne peut pas dépasser 10 caractères.");
-                    txtLibelle.Focus();
-                    return;
-                }
-
-                if (cbbAnneeAcademique.SelectedValue == null ||
-                    int.Parse(cbbAnneeAcademique.SelectedValue.ToString()) == 0)
-                {
-                    MessageBox.Show("Veuillez sélectionner une année académique.",
-                        "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    cbbAnneeAcademique.Focus();
-                    return;
-                }
+                if (_selectedClasseId == null || !Valider()) return;
 
                 int idAnnee = int.Parse(cbbAnneeAcademique.SelectedValue.ToString());
-                bool classeExiste = db.Classes.Any(classe =>
-                    classe.LibelleClasse.ToLower() == txtLibelle.Text.Trim().ToLower() &&
-                    classe.IdAnneeAcademique == idAnnee &&
-                    classe.IdClasse != _selectedClasseId);
 
-                if (classeExiste)
+                bool existe = db.Classes.Any(cl =>
+                    cl.LibelleClasse.ToLower() == txtLibelle.Text.Trim().ToLower() &&
+                    cl.IdAnneeAcademique == idAnnee &&
+                    cl.IdClasse != _selectedClasseId);
+
+                if (existe)
                 {
-                    MessageBox.Show("Une autre classe porte déjà ce nom pour cette année académique.",
-                        "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    ShowToast("Une autre classe porte déjà ce nom pour cette année.", Color.FromArgb(220, 80, 80));
                     return;
                 }
 
                 var c = db.Classes.Find(_selectedClasseId);
+                if (c == null) return;
 
-                if (c != null)
-                {
-                    c.LibelleClasse = txtLibelle.Text.Trim();
-                    c.IdAnneeAcademique = idAnnee;
+                c.LibelleClasse = txtLibelle.Text.Trim();
+                c.NiveauClasse = txtNiveau.Text.Trim();
+                c.IdAnneeAcademique = idAnnee;
+                c.IdResponsableClasse = GetResponsableId();
 
-                    db.SaveChanges();
-
-                    MessageBox.Show("Classe modifiée avec succès!",
-                        "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    Effacer();
-                }
+                db.SaveChanges();
+                Effacer();
+                ShowToast("Classe modifiée avec succès ✓", Color.FromArgb(255, 170, 50));
             }
             catch (Exception ex)
             {
                 Logger.WriteFileError($"btnModifier_Click : {ex.Message}");
-                MessageBox.Show($"Erreur lors de la modification: {ex.Message}",
-                    "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowToast($"Erreur : {ex.Message}", Color.FromArgb(220, 80, 80));
             }
         }
 
-        private void btnModifier_Click_1(object sender, EventArgs e)
-        {
-            btnModifier_Click(sender, e);
-        }
+        private void btnModifier_Click_1(object sender, EventArgs e) => btnModifier_Click(sender, e);
 
+        // ── Supprimer ─────────────────────────────────────────────────────────
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
             try
             {
-                if (_selectedClasseId == null)
-                {
-                    MessageBox.Show("Veuillez d'abord sélectionner une classe à supprimer.",
-                        "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                if (_selectedClasseId == null) return;
 
-                DialogResult result = MessageBox.Show(
-                    "Êtes-vous sûr de vouloir supprimer cette classe ?\n\nAttention : Cette action supprimera également toutes les données associées à cette classe.",
-                    "Confirmation de suppression",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
+                var res = MessageBox.Show(
+                    "Supprimer cette classe ? Toutes les données associées seront perdues.",
+                    "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                if (result == DialogResult.Yes)
-                {
-                    var c = db.Classes.Find(_selectedClasseId);
+                if (res != DialogResult.Yes) return;
 
-                    if (c != null)
-                    {
-                        db.Classes.Remove(c);
-                        db.SaveChanges();
+                var c = db.Classes.Find(_selectedClasseId);
+                if (c == null) return;
 
-                        MessageBox.Show("Classe supprimée avec succès!",
-                            "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        Effacer();
-                    }
-                }
+                db.Classes.Remove(c);
+                db.SaveChanges();
+                Effacer();
+                ShowToast("Classe supprimée.", Color.FromArgb(220, 80, 80));
             }
             catch (Exception ex)
             {
                 Logger.WriteFileError($"btnSupprimer_Click : {ex.Message}");
-                MessageBox.Show($"Erreur lors de la suppression: {ex.Message}\n\nCette classe est peut-être utilisée dans d'autres tables.",
-                    "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowToast($"Erreur : {ex.Message} — La classe est peut-être liée à d'autres données.", Color.FromArgb(220, 80, 80));
             }
         }
 
+        // ── Réinitialiser ─────────────────────────────────────────────────────
+        private void btnEffacer_Click(object sender, EventArgs e) => Effacer();
+
+        // ── Rechercher ────────────────────────────────────────────────────────
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            try { ChargerGrille(txtRClasse.Text, txtRAnnee.Text); }
+            catch (Exception ex) { Logger.WriteFileError($"btnSearch_Click : {ex.Message}"); }
+        }
+
+        // ── TextChanged : limite libellé ──────────────────────────────────────
         private void txtLibelle_TextChanged(object sender, EventArgs e)
         {
-            if (txtLibelle.Text.Length > 10)
+            if (txtLibelle.Text.Length > 20)
             {
-                txtLibelle.Text = txtLibelle.Text.Substring(0, 10);
+                txtLibelle.Text = txtLibelle.Text.Substring(0, 20);
                 txtLibelle.SelectionStart = txtLibelle.Text.Length;
             }
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        // ── Helpers ───────────────────────────────────────────────────────────
+        private bool Valider()
         {
-            try
+            if (string.IsNullOrWhiteSpace(txtLibelle.Text))
             {
-                var query = db.Classes.Include(c => c.AnneeAcademique).AsQueryable();
-
-                if (!string.IsNullOrEmpty(txtRAnnee.Text))
-                {
-                    string anneeRecherche = txtRAnnee.Text.ToUpper();
-                    query = query.Where(c =>
-                        c.AnneeAcademique.ValueAnneeAcademique.ToString().ToUpper().Contains(anneeRecherche)
-                    );
-                }
-
-                if (!string.IsNullOrEmpty(txtRClasse.Text))
-                {
-                    string classeRecherche = txtRClasse.Text.ToUpper();
-                    query = query.Where(c =>
-                        c.LibelleClasse.ToUpper().Contains(classeRecherche)
-                    );
-                }
-
-                var liste = query.Select(c => new
-                {
-                    c.IdClasse,
-                    c.LibelleClasse,
-                    c.IdAnneeAcademique,
-                    AnneeAcademique = c.AnneeAcademique.LibelleAnneeAcademique
-                }).ToList();
-
-                DgClasse.DataSource = liste;
+                ShowToast("Le libellé de la classe est obligatoire.", Color.FromArgb(220, 80, 80));
+                txtLibelle.Focus();
+                return false;
             }
-            catch (Exception ex)
+            if (string.IsNullOrWhiteSpace(txtNiveau.Text))
             {
-                Logger.WriteFileError($"btnSearch_Click : {ex.Message}");
-                MessageBox.Show($"Erreur lors de la recherche: {ex.Message}",
-                    "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowToast("Le niveau est obligatoire (ex: Licence 1).", Color.FromArgb(220, 80, 80));
+                txtNiveau.Focus();
+                return false;
             }
+            if (cbbAnneeAcademique.SelectedValue == null ||
+                int.Parse(cbbAnneeAcademique.SelectedValue.ToString()) == 0)
+            {
+                ShowToast("Veuillez sélectionner une année académique.", Color.FromArgb(220, 80, 80));
+                cbbAnneeAcademique.Focus();
+                return false;
+            }
+            return true;
+        }
+
+        private int? GetResponsableId()
+        {
+            if (cbbResponsable.SelectedValue == null) return null;
+            int id = int.Parse(cbbResponsable.SelectedValue.ToString());
+            return id == 0 ? (int?)null : id;
+        }
+
+        private void ShowToast(string message, Color color)
+        {
+            Label toast = new Label
+            {
+                Text = "  " + message,
+                AutoSize = false,
+                Size = new Size(400, 44),
+                Location = new Point(pnlGrid.Left + 20, pnlGrid.Bottom - 60),
+                BackColor = color,
+                ForeColor = Color.White,
+                Font = new Font("Segoe UI", 10F, FontStyle.Bold),
+                TextAlign = ContentAlignment.MiddleLeft
+            };
+            Controls.Add(toast);
+            toast.BringToFront();
+            var t = new Timer { Interval = 2800 };
+            t.Tick += (s, ev) => { t.Stop(); Controls.Remove(toast); toast.Dispose(); };
+            t.Start();
         }
     }
 }

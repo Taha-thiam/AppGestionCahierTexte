@@ -1,16 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;  
-using System.Threading.Tasks;
 
 namespace AppGestionCahierTexte.Models
 {
-    public class ResponsableClasse: Utilisateur
+    public class ResponsableClasse : Utilisateur
     {
-        [Required, MaxLength(10)]   
-        public String MatriculeResponsable { get; set; }
-    } 
+        [Required, MaxLength(20)]
+        public string MatriculeResponsable { get; set; }
+
+        // FK Classe (optionnel)
+        public int? IdClasse { get; set; }
+        [ForeignKey("IdClasse")]
+        public virtual Classe Classe { get; set; }
+
+        // FK CahierTexte (optionnel)
+        public int? IdCahierTexte { get; set; }
+        [ForeignKey("IdCahierTexte")]
+        public virtual CahierTexte CahierTexte { get; set; }
+
+        // Collections de navigation (existantes)
+        public virtual ICollection<Classe> Classes { get; set; }
+        public virtual ICollection<CahierTexte> CahiersTexte { get; set; }
+    }
 }

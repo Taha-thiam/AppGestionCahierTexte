@@ -1,0 +1,36 @@
+08/03/2026 23:22:42
+Erreur initialisation : Error retrieving values from ObjectStateEntry. See inner exception for details.
+--------------------------------------------------
+2026-03-08 23:27:30
+Erreur initialisation : Error retrieving values from ObjectStateEntry. See inner exception for details.
+--------------------------------------------------
+2026-03-08 23:29:28
+Erreur initialisation : Error retrieving values from ObjectStateEntry. See inner exception for details.
+--------------------------------------------------
+2026-03-08 23:34:20
+Erreur initialisation : Error retrieving values from ObjectStateEntry. See inner exception for details.
+--------------------------------------------------
+2026-03-08 23:35:38
+Erreur initialisation : Error retrieving values from ObjectStateEntry. See inner exception for details.
+--------------------------------------------------
+2026-03-08 23:36:21
+Erreur initialisation : Error retrieving values from ObjectStateEntry. See inner exception for details.
+--------------------------------------------------
+2026-03-08 23:38:41
+Erreur initialisation : The model backing the 'BdCahierTexteContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+--------------------------------------------------
+2026-03-08 23:39:54
+Erreur initialisation : The model backing the 'BdCahierTexteContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+--------------------------------------------------
+2026-03-13 16:02:48
+Erreur initialisation : The model backing the 'BdCahierTexteContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+--------------------------------------------------
+2026-03-13 16:04:37
+Erreur initialisation : The model backing the 'BdCahierTexteContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+--------------------------------------------------
+2026-03-13 21:35:07
+Erreur initialisation : The model backing the 'BdCahierTexteContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+--------------------------------------------------
+2026-03-13 21:38:30
+Erreur initialisation : The model backing the 'BdCahierTexteContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+--------------------------------------------------
